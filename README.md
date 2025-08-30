@@ -64,6 +64,10 @@ I combine a background in statistics, data science, and web development to creat
 
 ## 📂 Featured Projects
 
+### Customer Segmentation Using RFM Analysis
+
+Segmented customers using RFM metrics and K-Means clustering to uncover behavioral groups like VIPs and at-risk users, enabling data-driven marketing and retention strategies.
+
 ### Kenyan Housing Market Analysis
 
 Performed Exploratory Data Analysis (EDA) on the Kenyan housing market to evaluate how property size and location influence housing prices.
