@@ -14,6 +14,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <!--Favicon-->
+    <link rel="icon" href="assets/favicon/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <!-- NAVBAR -->
@@ -68,27 +70,6 @@
             alt="Michael Nyawade"
             class="profile-photo"
           />
-          <div class="about-contact-icons" aria-label="Social media links">
-            <a href="tel:+254705932858" aria-label="Call" target="_blank"
-              ><i class="fas fa-phone-volume"></i
-            ></a>
-            <a href="mailto:mikeokello17@gmail.com" aria-label="Email"
-              ><i class="fas fa-envelope"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/michael-nyawade-9a02b5276/"
-              target="_blank"
-              aria-label="LinkedIn"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a
-              href="https://github.com/Michael-Nyawade"
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub"
-              ><i class="fab fa-github"></i
-            ></a>
-          </div>
         </div>
       </div>
     </section>
@@ -98,7 +79,7 @@
       <h2>Professional Experience</h2>
       <div class="experience-grid">
         <div class="card-base card">
-          <h3>Research and Planning</h3>
+          <h3>Assistant Research and Planning Officer</h3>
           <p>
             <strong>Privatization Commission — </strong><br />17<sup>th</sup>
             March 2025 - Present
@@ -116,24 +97,23 @@
           </p>
         </div>
         <div class="card-base card">
-          <h3>Credit Analyst Intern</h3>
+          <h3>Credit Analyst</h3>
           <p>
             <strong>Metropol Corporation Ltd — </strong><br />8<sup>th</sup>
             January 2024 – 28<sup>th</sup> February 2025
           </p>
           <p>
             <br />
-            As a Credit Analyst Intern, I worked with financial data to assess
-            credit risk for SMEs and corporate clients. I gained hands-on
-            experience preparing credit reports and visual dashboards, using
-            Metropol’s proprietary scoring tools and CRB systems. This
-            experience sharpened my analytical thinking and introduced me to the
-            practical challenges of financial inclusion and credit evaluation in
-            emerging markets.
+            As a Credit Analyst, I worked with financial data to assess credit
+            risk for SMEs and corporate clients. I gained hands-on experience
+            preparing credit reports and visual dashboards, using Metropol’s
+            proprietary scoring tools and CRB systems. This experience sharpened
+            my analytical thinking and introduced me to the practical challenges
+            of financial inclusion and credit evaluation in emerging markets.
           </p>
         </div>
         <div class="card-base card">
-          <h3>Fiscal Analyst Attachee</h3>
+          <h3>Fiscal Analyst Intern</h3>
           <p>
             <strong>County Assembly of Siaya — </strong><br />18<sup>th</sup>
             October 2021 – 30<sup>th</sup> December 2021
@@ -158,28 +138,6 @@
       <h2>Education</h2>
       <div class="education-container">
         <div class="card-base education-card">
-          <h3>📘 Front-End Web Development</h3>
-          <p>ALX | 16<sup>th</sup> June 2025 – Present</p>
-          <button
-            class="toggle-details"
-            aria-expanded="false"
-            aria-controls="edu1-details"
-          >
-            Show Details
-          </button>
-          <div class="education-details" id="edu1-details">
-            <ul class="concept-list">
-              <li>HTML, CSS, JavaScript</li>
-              <li>Responsive Design & Layouts</li>
-              <li>Web Accessibility (WCAG)</li>
-              <li>DOM Manipulation</li>
-              <li>Git & GitHub Collaboration</li>
-              <li>UI/UX Principles</li>
-              <li>Developer Tools & Debugging</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card-base education-card">
           <h3>📊 Data Science</h3>
           <p>
             Explore AI Academy | 8<sup>th</sup> May 2023 – 23<sup>rd</sup>
@@ -188,11 +146,11 @@
           <button
             class="toggle-details"
             aria-expanded="false"
-            aria-controls="edu2-details"
+            aria-controls="edu1-details"
           >
             Show Details
           </button>
-          <div class="education-details" id="edu2-details">
+          <div class="education-details" id="edu1-details">
             <ul class="concept-list">
               <li>Data Preparation and Wrangling</li>
               <li>Exploratory Data Analysis</li>
@@ -405,19 +363,6 @@
         <div class="tool-tile">
           <img src="assets/tools/github.png" alt="GitHub" title="GitHub" />
         </div>
-        <div class="tool-tile">
-          <img src="assets/tools/html.png" alt="HTML" title="HTML" />
-        </div>
-        <div class="tool-tile">
-          <img src="assets/tools/css.png" alt="CSS" title="CSS" />
-        </div>
-        <div class="tool-tile">
-          <img
-            src="assets/tools/javascript.png"
-            alt="JavaScript"
-            title="JavaScript"
-          />
-        </div>
       </div>
     </section>
 
@@ -430,30 +375,39 @@
           Feel free to get in touch!
         </p>
       </div>
-      <form class="contact-form" action="#" method="POST" novalidate>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-          aria-label="Your Name"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-          aria-label="Your Email"
-        />
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Your Message"
-          required
-          aria-label="Your Message"
-        ></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <div class="contact-icons" aria-label="Contact links">
+        <div class="contact-method">
+          <a href="tel:+254705932858" aria-label="Call" target="_blank"
+            ><i class="fas fa-phone-volume"></i
+          ></a>
+          <span>Call</span>
+        </div>
+        <div class="contact-method">
+          <a href="mailto:mikeokello17@gmail.com" aria-label="Email"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <span>Email</span>
+        </div>
+        <div class="contact-method">
+          <a
+            href="https://www.linkedin.com/in/michael-nyawade-9a02b5276/"
+            target="_blank"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <span>LinkedIn</span>
+        </div>
+        <div class="contact-method">
+          <a
+            href="https://github.com/Michael-Nyawade"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <span>GitHub</span>
+        </div>
+      </div>
     </section>
 
     <!-- FOOTER -->
