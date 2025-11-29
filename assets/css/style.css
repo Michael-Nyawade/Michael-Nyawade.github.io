@@ -264,19 +264,37 @@ section {
   margin-bottom: 30px;
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+/* Wrapper that holds arrows + scroll area */
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
   margin-top: 20px;
 }
 
+/* Horizontal scrolling container */
+.projects-grid.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 10px 0;
+}
+
+/* Hiding scrollbar for clean look */
+.projects-grid.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensuring exactly 3 cards are visible on desktop */
 .project-card-link {
+  flex: 0 0 calc((100% - 60px) / 3);
   text-decoration: none;
   display: block;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+/* Card styling */
 .project-card-link .project-card {
   background: #fafafa;
   padding: 20px;
@@ -317,6 +335,47 @@ section {
   margin-top: 10px;
   color: #555;
   line-height: 1.5;
+}
+
+/* Arrow buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: #f39c12;
+}
+
+.scroll-btn.left {
+  left: -10px;
+}
+
+.scroll-btn.right {
+  right: -10px;
+}
+
+/* Responsive behavior */
+@media (max-width: 900px) {
+  .project-card-link {
+    flex: 0 0 calc((100% - 30px) / 2); /* show 2 cards */
+  }
+}
+
+@media (max-width: 600px) {
+  .project-card-link {
+    flex: 0 0 100%; /* show 1 card on mobile */
+  }
 }
 
 /* ===== TESTIMONIALS SECTION ==== */
