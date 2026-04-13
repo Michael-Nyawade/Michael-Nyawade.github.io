@@ -1,62 +1,102 @@
-// Toggle details for education cards
+// TOGGLE DETAILS (Education Cards)
+
 document.querySelectorAll(".toggle-details").forEach((button) => {
   button.addEventListener("click", () => {
     const details = button.nextElementSibling;
+    if (!details) return;
+
     const isOpen = details.classList.toggle("open");
     button.textContent = isOpen ? "Hide Details" : "Show Details";
     button.setAttribute("aria-expanded", isOpen);
   });
 });
 
-// Horizontal scroll for project section
-const container = document.querySelector(".projects-grid.horizontal-scroll");
-const btnLeft = document.querySelector(".scroll-btn.left");
-const btnRight = document.querySelector(".scroll-btn.right");
 
-const scrollAmount = container.clientWidth * 0.9;
+// MANUAL HORIZONTAL SCROLL FUNCTION
 
-btnLeft.addEventListener("click", () => {
-  container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-});
+function setupScrollButtons(wrapperSelector, containerSelector) {
+  const wrapper = document.querySelector(wrapperSelector);
+  if (!wrapper) return;
 
-btnRight.addEventListener("click", () => {
-  container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-});
+  const container = wrapper.querySelector(containerSelector);
+  const btnLeft = wrapper.querySelector(".scroll-btn.left");
+  const btnRight = wrapper.querySelector(".scroll-btn.right");
 
-/* ============================
-   AUTO-SCROLL FOR PROJECTS
-   ============================ */
+  if (!container || !btnLeft || !btnRight) return;
 
-const autoScrollContainer = document.querySelector(
+  const scrollAmount = container.clientWidth * 0.9;
+
+  btnLeft.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  btnRight.addEventListener("click", () => {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+}
+
+// Apply manual horizontal scroll to sections
+// Projects
+setupScrollButtons(
+  "#projects .projects-wrapper",
   ".projects-grid.horizontal-scroll"
 );
-let autoScrollInterval;
 
-function startAutoScroll() {
-  autoScrollInterval = setInterval(() => {
-    // Scroll by one card width each time
-    const cardWidth =
-      autoScrollContainer.querySelector(".project-card-link").clientWidth + 30; // 30 = gap
+// Experience
+setupScrollButtons(
+  "#experience .experience-wrapper",
+  ".experience-grid.horizontal-scroll"
+);
 
-    // If near the end, wrap back to the start
-    if (
-      autoScrollContainer.scrollLeft + autoScrollContainer.clientWidth >=
-      autoScrollContainer.scrollWidth - 5
-    ) {
-      autoScrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      autoScrollContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
-    }
-  }, 3500); // time between auto-scrolls (3.5 seconds)
+
+// AUTO-SCROLL FUNCTION
+
+function setupAutoScroll(containerSelector, cardSelector, gap = 30, intervalTime = 3500) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  let autoScrollInterval;
+
+  function start() {
+    autoScrollInterval = setInterval(() => {
+      const card = container.querySelector(cardSelector);
+      if (!card) return;
+
+      const cardWidth = card.clientWidth + gap;
+
+      if (
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 5
+      ) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    }, intervalTime);
+  }
+
+  function stop() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Pause on hover
+  container.addEventListener("mouseenter", stop);
+  container.addEventListener("mouseleave", start);
+
+  // Start immediately
+  start();
 }
 
-function stopAutoScroll() {
-  clearInterval(autoScrollInterval);
-}
+// Apply auto-scroll to sections
 
-// Pause auto-scroll while hovering over the project section
-autoScrollContainer.addEventListener("mouseenter", stopAutoScroll);
-autoScrollContainer.addEventListener("mouseleave", startAutoScroll);
+// Projects section
+setupAutoScroll(
+  ".projects-grid.horizontal-scroll",
+  ".project-card-link",
+);
 
-// Start auto-scroll on page load
-startAutoScroll();
+// Experience section
+setupAutoScroll(
+  ".experience-grid.horizontal-scroll",
+  ".experience-card"
+);

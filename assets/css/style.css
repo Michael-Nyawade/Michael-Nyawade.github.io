@@ -157,16 +157,78 @@ section {
   transform: translateY(-10px);
 }
 
-/* ===== EXPERIENCE SECTION ====== */
-.card {
+/* ===== EXPERIENCE SECTION ===== */
+
+.experience-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Horizontal scrolling container */
+.experience-grid.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 10px 0;
+}
+
+/* Hide scrollbar */
+.experience-grid.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each experience card behaves like a project card */
+.experience-card {
+  flex: 0 0 calc((100% - 60px) / 3);
+}
+
+/* Card styling */
+.experience-card.card {
   border-left: 4px solid #3498db;
 }
 
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
+/* Arrow buttons */
+.experience-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #2c3e50;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.experience-wrapper .scroll-btn:hover {
+  background: #f39c12;
+}
+
+.experience-wrapper .scroll-btn.left {
+  left: -10px;
+}
+
+.experience-wrapper .scroll-btn.right {
+  right: -10px;
+}
+
+/* Responsive behavior */
+@media (max-width: 900px) {
+  .experience-card {
+    flex: 0 0 calc((100% - 30px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-card {
+    flex: 0 0 100%;
+  }
 }
 
 /* ===== EDUCATION SECTION ===== */
