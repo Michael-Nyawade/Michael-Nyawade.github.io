@@ -27,7 +27,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section style={{ padding: "3rem 0" }}>
+    <section>
       <h2>Experience</h2>
 
       <div style={{ marginTop: "2rem" }}>
@@ -37,7 +37,7 @@ export default function Experience() {
             style={{
               marginBottom: "2rem",
               paddingLeft: "1rem",
-              borderLeft: "3px solid #444",
+              borderLeft: "3px solid var(--accent-color)",
             }}
           >
             <h3 style={{ marginBottom: "0.3rem" }}>
@@ -46,7 +46,7 @@ export default function Experience() {
 
             <p
               style={{
-                color: "#777",
+                color: "var(--paragraph-color)",
                 marginTop: 0,
                 fontSize: "0.9rem",
               }}
