@@ -3,6 +3,7 @@ import About from "./sections/About";
 import Experience from "./sections/Experience";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
 import Container from "./components/Container";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Experience />
       <Skills />
       <Projects />
+      <Contact />
     </Container>
   );
 }
