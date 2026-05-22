@@ -1,6 +1,7 @@
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
+import Skills from "./sections/Skills";
 import Container from "./components/Container";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Hero />
       <About />
       <Experience />
+      <Skills />
     </Container>
   );
 }
