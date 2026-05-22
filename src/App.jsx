@@ -1,10 +1,11 @@
 import Hero from "./sections/Hero";
+import Container from "./components/Container";
 
 function App() {
   return (
-    <div>
+    <Container>
       <Hero />
-    </div>
+    </Container>
   );
 }
 
