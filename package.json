@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
     "aos": "^2.3.4",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"

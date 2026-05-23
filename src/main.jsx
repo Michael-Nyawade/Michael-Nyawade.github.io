@@ -8,6 +8,9 @@ import "./styles.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Font Awesome
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 // Initialize AOS
 AOS.init({
   duration: 800, // animation duration in ms
