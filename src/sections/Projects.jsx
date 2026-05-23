@@ -52,110 +52,181 @@ export default function Projects() {
     <section id="projects" style={{ padding: "3rem 1rem" }}>
       <h2 data-aos="fade-up">Featured Projects</h2>
 
+      {/* WRAPPER */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "2rem",
-          marginTop: "2rem",
+          position: "relative",
           maxWidth: "1100px",
-          marginInline: "auto",
+          margin: "2rem auto 0",
         }}
       >
-        {projects.map((project, index) => (
-          <a
-            key={index}
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-aos="fade-up"
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <div
+        {/* LEFT BUTTON */}
+        <button
+          onClick={() => {
+            document
+              .getElementById("project-scroll")
+              .scrollBy({ left: -350, behavior: "smooth" });
+          }}
+          style={{
+            position: "absolute",
+            left: "-40px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 10,
+            background: "var(--secondary-color)",
+            border: "1px solid var(--border-color)",
+            color: "var(--text-color)",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            cursor: "pointer",
+          }}
+        >
+          ‹
+        </button>
+
+        {/* RIGHT BUTTON */}
+        <button
+          onClick={() => {
+            document
+              .getElementById("project-scroll")
+              .scrollBy({ left: 350, behavior: "smooth" });
+          }}
+          style={{
+            position: "absolute",
+            right: "-40px",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 10,
+            background: "var(--secondary-color)",
+            border: "1px solid var(--border-color)",
+            color: "var(--text-color)",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            cursor: "pointer",
+          }}
+        >
+          ›
+        </button>
+
+        {/* SCROLL CONTAINER */}
+        <div
+          id="project-scroll"
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            overflowX: "auto",
+            scrollBehavior: "smooth",
+            paddingBottom: "1rem",
+            scrollSnapType: "x mandatory",
+          }}
+        >
+          {projects.map((project, index) => (
+            <a
+              key={index}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-aos="fade-up"
               style={{
-                borderRadius: "14px",
-                overflow: "hidden",
-                backgroundColor: "var(--secondary-color)",
-                border: "1px solid var(--border-color)",
-                boxShadow: "0 4px 12px var(--shadow-color)",
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow =
-                  "0 10px 25px var(--shadow-color)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 12px var(--shadow-color)";
+                textDecoration: "none",
+                color: "inherit",
+                flex: "0 0 calc(33.333% - 1rem)", // 3 cards visible
+                scrollSnapAlign: "start",
               }}
             >
-              {/* IMAGE */}
-              {project.image && (
-                <div style={{ position: "relative" }}>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    style={{
-                      width: "100%",
-                      height: "180px",
-                      objectFit: "cover",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35))",
-                    }}
-                  />
-                </div>
-              )}
-
-              {/* CONTENT */}
               <div
                 style={{
-                  padding: "1.2rem",
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  backgroundColor: "var(--secondary-color)",
+                  border: "1px solid var(--border-color)",
+                  boxShadow: "0 4px 12px var(--shadow-color)",
                   display: "flex",
                   flexDirection: "column",
-                  flex: 1,
+                  height: "100%",
+                  transition:
+                    "transform 0.2s ease, box-shadow 0.2s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 25px var(--shadow-color)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 12px var(--shadow-color)";
                 }}
               >
-                <h3 style={{ marginBottom: "0.3rem" }}>{project.title}</h3>
-
-                {/* STATUS BADGE (ONLY IN PROGRESS) */}
-                {project.status === "In Progress" && (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      fontSize: "0.75rem",
-                      padding: "0.2rem 0.6rem",
-                      borderRadius: "999px",
-                      backgroundColor: "rgba(255, 165, 0, 0.15)",
-                      color: "var(--accent-color)",
-                      marginBottom: "0.8rem",
-                      width: "fit-content",
-                    }}
-                  >
-                    In Progress
-                  </span>
+                {/* IMAGE */}
+                {project.image && (
+                  <div style={{ position: "relative" }}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      style={{
+                        width: "100%",
+                        height: "180px",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35))",
+                      }}
+                    />
+                  </div>
                 )}
 
-                <p style={{ flex: 1, lineHeight: 1.6, opacity: 0.9 }}>
-                  {project.description}
-                </p>
+                {/* CONTENT */}
+                <div
+                  style={{
+                    padding: "1.2rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                  }}
+                >
+                  <h3 style={{ marginBottom: "0.3rem" }}>
+                    {project.title}
+                  </h3>
 
-                {/* TAGS */}
-                {project.tags && (
+                  {/* STATUS (for only in progress) */}
+                  {project.status === "In Progress" && (
+                    <span
+                      style={{
+                        display: "inline-block",
+                        fontSize: "0.75rem",
+                        padding: "0.2rem 0.6rem",
+                        borderRadius: "999px",
+                        backgroundColor:
+                          "rgba(255, 165, 0, 0.15)",
+                        color: "var(--accent-color)",
+                        marginBottom: "0.8rem",
+                        width: "fit-content",
+                      }}
+                    >
+                      In Progress
+                    </span>
+                  )}
+
+                  <p
+                    style={{
+                      flex: 1,
+                      lineHeight: 1.6,
+                      opacity: 0.9,
+                    }}
+                  >
+                    {project.description}
+                  </p>
+
+                  {/* TAGS */}
                   <div
                     style={{
                       display: "flex",
@@ -164,14 +235,15 @@ export default function Projects() {
                       marginTop: "1rem",
                     }}
                   >
-                    {project.tags.map((tag, i) => (
+                    {project.tags?.map((tag, i) => (
                       <span
                         key={i}
                         style={{
                           fontSize: "0.7rem",
                           padding: "0.2rem 0.5rem",
                           borderRadius: "999px",
-                          border: "1px solid var(--border-color)",
+                          border:
+                            "1px solid var(--border-color)",
                           opacity: 0.8,
                         }}
                       >
@@ -179,12 +251,29 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
-            </div>
-          </a>
-        ))}
+            </a>
+          ))}
+        </div>
       </div>
+
+      {/* Hide scrollbar */}
+      <style>{`
+        #project-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        #project-scroll {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        @media (max-width: 900px) {
+          #project-scroll a {
+            flex: 0 0 80%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
