@@ -120,9 +120,21 @@ Error generating stack: `+e.message+`
         }
 
         @media (max-width: 900px) {
-          #project-scroll a {
-            flex: 0 0 80%;
-          }
+        #project-scroll a {
+        flex: 0 0 92%;
+        }
+        
+        #project-scroll img {
+        height: 160px !important;
+        }
+        
+        #project-scroll h3 {
+        font-size: 1.05rem;
+        }
+        
+        #project-scroll p {
+        font-size: 0.9rem;
+        }
         }
       `})]})}var E=[{name:`Call`,link:`tel:+254705932858`,icon:`fas fa-phone-volume`,aria:`Call`},{name:`Email`,link:`mailto:mikeokello17@gmail.com`,icon:`fas fa-envelope`,aria:`Email`},{name:`LinkedIn`,link:`https://www.linkedin.com/in/michael-nyawade-9a02b5276/`,icon:`fab fa-linkedin`,aria:`LinkedIn`},{name:`GitHub`,link:`https://github.com/Michael-Nyawade`,icon:`fab fa-github`,aria:`GitHub`}];function D(){return(0,x.jsxs)(`section`,{id:`contact`,children:[(0,x.jsxs)(`div`,{className:`section-heading`,children:[(0,x.jsxs)(`h2`,{children:[(0,x.jsx)(`i`,{className:`fas fa-envelope`}),`Get in Touch`]}),(0,x.jsx)(`p`,{className:`section-subtitle`,children:`I'm open to opportunities, collaboration, or just a good data conversation. Feel free to get in touch!`})]}),(0,x.jsx)(`div`,{className:`contact-icons`,"aria-label":`Contact links`,children:E.map((e,t)=>(0,x.jsxs)(`div`,{className:`contact-method`,children:[(0,x.jsx)(`a`,{href:e.link,target:`_blank`,rel:`noopener`,"aria-label":e.aria,children:(0,x.jsx)(`i`,{className:e.icon})}),(0,x.jsx)(`span`,{children:e.name})]},t))})]})}function ue(){return(0,x.jsxs)(x.Fragment,{children:[(0,x.jsx)(S,{}),(0,x.jsx)(C,{}),(0,x.jsx)(te,{}),(0,x.jsx)(ne,{}),(0,x.jsx)(re,{}),(0,x.jsx)(le,{}),(0,x.jsx)(D,{})]})}c(o(((e,t)=>{(function(n,r){typeof e==`object`&&typeof t==`object`?t.exports=r():typeof define==`function`&&define.amd?define([],r):typeof e==`object`?e.AOS=r():n.AOS=r()})(e,function(){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return e[r].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p=`dist/`,t(0)}([function(e,t,n){function r(e){return e&&e.__esModule?e:{default:e}}var i=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},a=r((r(n(1)),n(6))),o=r(n(7)),s=r(n(8)),c=r(n(9)),l=r(n(10)),u=r(n(11)),d=r(n(14)),f=[],p=!1,m={offset:120,delay:0,easing:`ease`,duration:400,disable:!1,once:!1,startEvent:`DOMContentLoaded`,throttleDelay:99,debounceDelay:50,disableMutationObserver:!1},h=function(){if(arguments.length>0&&arguments[0]!==void 0&&arguments[0]&&(p=!0),p)return f=(0,u.default)(f,m),(0,l.default)(f,m.once),f},g=function(){f=(0,d.default)(),h()},_=function(){f.forEach(function(e,t){e.node.removeAttribute(`data-aos`),e.node.removeAttribute(`data-aos-easing`),e.node.removeAttribute(`data-aos-duration`),e.node.removeAttribute(`data-aos-delay`)})},v=function(e){return e===!0||e===`mobile`&&c.default.mobile()||e===`phone`&&c.default.phone()||e===`tablet`&&c.default.tablet()||typeof e==`function`&&e()===!0};e.exports={init:function(e){m=i(m,e),f=(0,d.default)();var t=document.all&&!window.atob;return v(m.disable)||t?_():(m.disableMutationObserver||s.default.isSupported()||(console.info(`
       aos: MutationObserver is not supported on this browser,
