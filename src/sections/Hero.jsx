@@ -1,7 +1,6 @@
 export default function Hero() {
   return (
-    <section>
-      <p style={{ color: "#888", marginBottom: "0.5rem" }}>Hello, I'm</p>
+    <section data-aos="fade-down" style={{ padding: "4rem 0" }}>
       <h1>Michael Nyawade</h1>
       <h2>Statistician | Data Scientist | Code Enthusiast</h2>
       <p style={{ maxWidth: "650px", marginTop: "1.5rem" }}>

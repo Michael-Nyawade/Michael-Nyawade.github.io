@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
-    <section>
-      <h2>Contact</h2>
+    <section data-aos="fade-up" style={{ padding: "3rem 0" }}>
+      <h2>Get in Touch</h2>
       <p style={{ marginTop: "1rem", lineHeight: 1.6 }}>
         I'm open to opportunities, collaborations, or just a good data conversation.
         Feel free to reach out!

@@ -27,36 +27,30 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section>
-      <h2>Experience</h2>
-
+    <section style={{ padding: "3rem 0" }}>
+      <h2 data-aos="fade-up">Professional Experience</h2>
       <div style={{ marginTop: "2rem" }}>
         {experiences.map((experience, index) => (
           <div
             key={index}
+            data-aos="fade-up"
             style={{
               marginBottom: "2rem",
               paddingLeft: "1rem",
-              borderLeft: "3px solid var(--accent-color)",
+              borderLeft: "3px solid #61dafb",
             }}
           >
-            <h3 style={{ marginBottom: "0.3rem" }}>
-              {experience.role}
-            </h3>
-
+            <h3 style={{ marginBottom: "0.3rem" }}>{experience.role}</h3>
             <p
               style={{
-                color: "var(--paragraph-color)",
+                color: "#777",
                 marginTop: 0,
                 fontSize: "0.9rem",
               }}
             >
               {experience.period}
             </p>
-
-            <p style={{ lineHeight: 1.6 }}>
-              {experience.description}
-            </p>
+            <p style={{ lineHeight: 1.6 }}>{experience.description}</p>
           </div>
         ))}
       </div>

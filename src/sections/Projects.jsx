@@ -49,12 +49,14 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section>
-      <h2>Featured Projects</h2>
+    <section data-aos="fade-up">
+      <h2>Projects</h2>
       <div className="project-grid" style={{ marginTop: "2rem" }}>
-        {projects.map((project, index) => (
+        {projects.map((project, idx) => (
           <div
-            key={index}
+            key={idx}
+            data-aos="fade-up"
+            data-aos-delay={idx * 100} // stagger animations
             style={{
               marginBottom: "2rem",
               padding: "1rem",
