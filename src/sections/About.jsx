@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section data-aos="fade-up" style={{ padding: "3rem 0" }}>
+    <section id="about" data-aos="fade-up" style={{ padding: "3rem 0" }}>
       <h2>About Me</h2>
 
       <p style={{ lineHeight: 1.7, marginTop: "1rem" }}>

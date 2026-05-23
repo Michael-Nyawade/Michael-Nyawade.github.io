@@ -6,7 +6,7 @@ const skills = {
 
 export default function Skills() {
   return (
-    <section data-aos="fade-up" style={{ padding: "3rem 0" }}>
+    <section id="skills" data-aos="fade-up" style={{ padding: "3rem 0" }}>
       <h2>Skills</h2>
 
       <div style={{ marginTop: "2rem" }}>

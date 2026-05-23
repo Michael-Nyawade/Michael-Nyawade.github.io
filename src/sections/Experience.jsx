@@ -27,7 +27,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section style={{ padding: "3rem 0" }}>
+    <section id="experience" style={{ padding: "3rem 0" }}>
       <h2 data-aos="fade-up">Professional Experience</h2>
       <div style={{ marginTop: "2rem" }}>
         {experiences.map((experience, index) => (
