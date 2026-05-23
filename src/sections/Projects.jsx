@@ -1,3 +1,9 @@
+// import smartdukaImg from "../assets/projects/smartduka.png";
+import diabetesImg from "../assets/projects/diabetes-prediction.jpg";
+import rfmImg from "../assets/projects/rfm.png";
+import housingImg from "../assets/projects/housing.jpg";
+import petroleumImg from "../assets/projects/petroleum.jpg";
+
 const projects = [
   {
     title: "SmartDuka",
@@ -5,7 +11,7 @@ const projects = [
       "A smart shop management platform for small retailers. Features include inventory management (dead stock detection, low stock alerts), sales tracking (cash, mobile money, credit), credit management, and a daily insights dashboard. Currently in progress.",
     link: "https://github.com/Michael-Nyawade/smart-duka",
     status: "In Progress",
-    image: "/src/assets/projects/smartduka.png",
+    // image: smartdukaImg,
   },
   {
     title: "Diabetes Prediction Using Logistic Regression",
@@ -13,7 +19,7 @@ const projects = [
       "Built a Logistic Regression model to predict diabetes using the Pima Indians dataset. Performed EDA and feature engineering, achieving a ROC-AUC of ~0.81. Key predictors: glucose, BMI, pregnancies.",
     link: "https://github.com/Michael-Nyawade/diabetes-prediction",
     status: "Completed",
-    image: "/src/assets/projects/diabetes-prediction.jpg",
+    image: diabetesImg,
   },
   {
     title: "Customer Segmentation Using RFM Analysis",
@@ -21,7 +27,7 @@ const projects = [
       "Segmented customers using RFM metrics and K-Means clustering to uncover behavioral groups like VIPs and at-risk users, enabling data-driven marketing and retention strategies.",
     link: "https://github.com/Michael-Nyawade/customer-segmentation-rfm",
     status: "Completed",
-    image: "/src/assets/projects/rfm.png",
+    image: rfmImg,
   },
   {
     title: "Kenyan Housing Market Analysis",
@@ -29,7 +35,7 @@ const projects = [
       "Performed Exploratory Data Analysis (EDA) on the Kenyan housing market to evaluate how property size and location influence housing prices.",
     link: "https://github.com/Michael-Nyawade/housing_in_kenya",
     status: "Completed",
-    image: "/src/assets/projects/housing.jpg",
+    image: housingImg,
   },
   {
     title: "Petroleum Price vs Inflation",
@@ -37,7 +43,7 @@ const projects = [
       "Analyzed the impact of petroleum price fluctuations on inflation in Nairobi using CPI data, focusing on kerosene, gasoline, and diesel.",
     link: "https://github.com/Michael-Nyawade/Petroleum-Price-Impact-on-Inflation",
     status: "Completed",
-    image: "/src/assets/projects/petroleum.jpg",
+    image: petroleumImg,
   },
 ];
 
