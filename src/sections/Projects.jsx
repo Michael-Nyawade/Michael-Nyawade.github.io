@@ -18,7 +18,6 @@ const projects = [
     description:
       "Built a Logistic Regression model to predict diabetes using the Pima Indians dataset. Performed EDA and feature engineering, achieving a ROC-AUC of ~0.81. Key predictors: glucose, BMI, pregnancies.",
     link: "https://github.com/Michael-Nyawade/diabetes-prediction",
-    status: "Completed",
     image: diabetesImg,
   },
   {
@@ -26,7 +25,6 @@ const projects = [
     description:
       "Segmented customers using RFM metrics and K-Means clustering to uncover behavioral groups like VIPs and at-risk users, enabling data-driven marketing and retention strategies.",
     link: "https://github.com/Michael-Nyawade/customer-segmentation-rfm",
-    status: "Completed",
     image: rfmImg,
   },
   {
@@ -34,7 +32,6 @@ const projects = [
     description:
       "Performed Exploratory Data Analysis (EDA) on the Kenyan housing market to evaluate how property size and location influence housing prices.",
     link: "https://github.com/Michael-Nyawade/housing_in_kenya",
-    status: "Completed",
     image: housingImg,
   },
   {
@@ -42,57 +39,66 @@ const projects = [
     description:
       "Analyzed the impact of petroleum price fluctuations on inflation in Nairobi using CPI data, focusing on kerosene, gasoline, and diesel.",
     link: "https://github.com/Michael-Nyawade/Petroleum-Price-Impact-on-Inflation",
-    status: "Completed",
     image: petroleumImg,
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" data-aos="fade-up">
+    <section id="projects" style={{ padding: "3rem 1rem", textAlign: "center" }}>
       <h2>Featured Projects</h2>
-      <div className="project-grid" style={{ marginTop: "2rem" }}>
-        {projects.map((project, idx) => (
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "2rem",
+          marginTop: "2rem",
+        }}
+      >
+        {projects.map((project, index) => (
           <div
-            key={idx}
-            data-aos="fade-up"
-            data-aos-delay={idx * 100} // stagger animations
+            key={index}
             style={{
-              marginBottom: "2rem",
-              padding: "1rem",
-              backgroundColor: "var(--secondary-color)",
+              border: "1px solid var(--border)",
               borderRadius: "8px",
-              borderLeft: `5px solid ${
-                project.status === "In Progress" ? "#f39c12" : "var(--accent-color)"
-              }`,
+              overflow: "hidden",
+              backgroundColor: "var(--secondary-color)",
+              boxShadow: "var(--shadow)",
+              display: "flex",
+              flexDirection: "column",
+              transition: "transform 0.2s",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
-            <h3 style={{ marginBottom: "0.3rem" }}>
-              {project.title}{" "}
-              <span style={{ fontSize: "0.8rem", color: "#f39c12" }}>
-                {project.status === "In Progress" ? "(In Progress)" : ""}
-              </span>
-            </h3>
-            <p style={{ lineHeight: 1.6 }}>{project.description}</p>
-            {project.link && (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent-color)" }}
-              >
-                View Project
-              </a>
-            )}
-            {project.image && (
-              <div style={{ marginTop: "1rem" }}>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  style={{ maxWidth: "100%", borderRadius: "4px" }}
-                />
-              </div>
-            )}
+            <img
+              src={project.image}
+              alt={project.title}
+              style={{ width: "100%", height: "180px", objectFit: "cover" }}
+            />
+            <div style={{ padding: "1rem", flex: 1, display: "flex", flexDirection: "column" }}>
+              <h3>{project.title}</h3>
+              {project.status && (
+                <span style={{ fontSize: "0.85rem", color: "var(--accent-color)", marginBottom: "0.5rem" }}>
+                  {project.status}
+                </span>
+              )}
+              <p style={{ flex: 1, marginBottom: "1rem" }}>{project.description}</p>
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: "none",
+                    color: "var(--accent-color)",
+                    fontWeight: "600",
+                  }}
+                >
+                  View Project
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
