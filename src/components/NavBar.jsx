@@ -67,10 +67,30 @@ export default function NavBar() {
               color: activeSection === section ? "var(--accent-color)" : "var(--text-color)",
               fontWeight: activeSection === section ? "600" : "400",
               cursor: "pointer",
+              position: "relative",
+              padding: "0.25rem 0",
               transition: "color 0.3s ease, font-weight 0.3s ease",
             }}
           >
             {section.charAt(0).toUpperCase() + section.slice(1)}
+            {/* underline for active section */}
+            <span
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                width: activeSection === section ? "100%" : "0%",
+                height: "2px",
+                backgroundColor: "var(--accent-color)",
+                transition: "width 0.3s ease",
+              }}
+              className="nav-underline"
+            />
+            <style>{`
+              button.nav-underline:hover span {
+                width: 100%;
+              }
+            `}</style>
           </button>
         ))}
       </div>
@@ -132,9 +152,9 @@ export default function NavBar() {
       <style>{`
         @keyframes slideDown {
           0% { transform: translateY(-10%); opacity: 0; }
-        100% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(0); opacity: 1; }
         }
-        
+
         @media (max-width: 768px) {
           .desktop-menu { display: none; }
           .mobile-menu { display: block; }
