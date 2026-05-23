@@ -304,9 +304,21 @@ export default function Projects() {
         }
 
         @media (max-width: 900px) {
-          #project-scroll a {
-            flex: 0 0 80%;
-          }
+        #project-scroll a {
+        flex: 0 0 92%;
+        }
+        
+        #project-scroll img {
+        height: 160px !important;
+        }
+        
+        #project-scroll h3 {
+        font-size: 1.05rem;
+        }
+        
+        #project-scroll p {
+        font-size: 0.9rem;
+        }
         }
       `}</style>
     </section>
