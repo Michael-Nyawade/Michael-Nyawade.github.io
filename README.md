@@ -1,16 +1,61 @@
-# React + Vite
+# Michael Nyawade Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website! This site showcases my experience, projects, skills, and contact information.  
 
-Currently, two official plugins are available:
+## Live Site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+You can view the live portfolio here: [https://michael-nyawade.github.io](https://michael-nyawade.github.io)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## About Me
 
-## Expanding the ESLint configuration
+I’m **Michael Nyawade**, a passionate data enthusiast with a Bachelor's degree in Statistics and additional training in Data Science.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+My professional experience spans fiscal analysis, credit analysis, research & planning, and software development. Currently, I am focused on software development while nurturing my passion for data science.  
+
+I enjoy building data-driven solutions, analyzing trends, and transforming insights into actionable strategies. One of my ongoing projects is **SmartDuka**, a smart shop management system designed to help small businesses manage inventory, track sales, and gain daily insights.  
+
+---
+
+## Skills
+
+- **Programming Languages:** Python, R, SQL, Go, JavaScript  
+- **Data Science:** Machine Learning, Data Analysis, Statistics  
+- **Tools & Libraries:** Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn  
+
+---
+
+## Projects
+
+1. **SmartDuka (In Progress)**  
+   A shop management platform for small businesses to manage inventory, sales, and credit.  
+
+2. **Diabetes Prediction Using Logistic Regression**  
+   Built a Logistic Regression model on the Pima Indians dataset. ROC-AUC: ~0.81. Key predictors: `glucose`, `BMI`, `pregnancies.  `
+
+3. **Customer Segmentation Using RFM Analysis**  
+   Segmented customers using RFM metrics and K-Means clustering to identify VIPs and at-risk users.  
+
+4. **Kenyan Housing Market Analysis**  
+   Explored housing prices in Kenya, analyzing the impact of location and property size.  
+
+5. **Petroleum Price vs Inflation**  
+   Studied the effect of petroleum price changes on Nairobi's CPI, focusing on kerosene, gasoline, and diesel.  
+
+---
+
+## Contact
+- **Email:** mikeokello17@gmail@gmail.com  
+- **LinkedIn:** [Michael Nyawade](https://www.linkedin.com/in/michael-nyawade-9a02b5276/)  
+- **GitHub:** [Michael-Nyawade](https://github.com/Michael-Nyawade)  
+
+---
+
+## Features
+
+- Responsive design for desktop and mobile  
+- Dark and light theme toggle (in progress)  
+- Clean, modern UI with smooth navigation  
+
+---
