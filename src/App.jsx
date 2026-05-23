@@ -5,6 +5,7 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import Container from "./components/Container";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
+      <BackToTop />
     </Container>
   );
 }

@@ -25,7 +25,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             style={{ color: "var(--accent-color)" }}
           >
-            linkedin.com/in/michael-nyawade
+            linkedin.com/in/michael-nyawade-9a02b5276/
           </a>
         </li>
         <li>

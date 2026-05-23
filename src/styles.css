@@ -34,3 +34,32 @@ ul {
   margin: 0;
   padding-left: 1.5rem;
 }
+
+/* Responsive project grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography adjustments */
+h2 {
+  font-size: 1.8rem;
+}
+p {
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}

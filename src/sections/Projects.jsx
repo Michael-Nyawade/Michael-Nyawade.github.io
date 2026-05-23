@@ -45,7 +45,7 @@ export default function Projects() {
   return (
     <section>
       <h2>Featured Projects</h2>
-      <div style={{ marginTop: "2rem" }}>
+      <div className="project-grid" style={{ marginTop: "2rem" }}>
         {projects.map((project, index) => (
           <div
             key={index}
