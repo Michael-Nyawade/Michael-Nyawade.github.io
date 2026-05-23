@@ -50,7 +50,7 @@ const projects = [
 export default function Projects() {
   return (
     <section data-aos="fade-up">
-      <h2>Projects</h2>
+      <h2>Featured Projects</h2>
       <div className="project-grid" style={{ marginTop: "2rem" }}>
         {projects.map((project, idx) => (
           <div
