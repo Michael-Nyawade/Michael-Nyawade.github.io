@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import diabetesImg from "../assets/projects/diabetes-prediction.jpg";
 import rfmImg from "../assets/projects/rfm.png";
 import housingImg from "../assets/projects/housing.jpg";
@@ -48,6 +49,32 @@ const projects = [
 ];
 
 export default function Projects() {
+  const scrollRef = useRef(null);
+  const pauseRef = useRef(false);
+
+  // AUTO-PLAY SCROLL
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (pauseRef.current) return;
+
+      const container = scrollRef.current;
+      if (!container) return;
+
+      const maxScroll =
+        container.scrollWidth - container.clientWidth;
+
+      const nextScroll = container.scrollLeft + 350;
+
+      if (nextScroll >= maxScroll) {
+        container.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        container.scrollBy({ left: 350, behavior: "smooth" });
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="projects" style={{ padding: "3rem 1rem" }}>
       <h2 data-aos="fade-up">Featured Projects</h2>
@@ -63,9 +90,10 @@ export default function Projects() {
         {/* LEFT BUTTON */}
         <button
           onClick={() => {
-            document
-              .getElementById("project-scroll")
-              .scrollBy({ left: -350, behavior: "smooth" });
+            scrollRef.current?.scrollBy({
+              left: -350,
+              behavior: "smooth",
+            });
           }}
           style={{
             position: "absolute",
@@ -88,9 +116,10 @@ export default function Projects() {
         {/* RIGHT BUTTON */}
         <button
           onClick={() => {
-            document
-              .getElementById("project-scroll")
-              .scrollBy({ left: 350, behavior: "smooth" });
+            scrollRef.current?.scrollBy({
+              left: 350,
+              behavior: "smooth",
+            });
           }}
           style={{
             position: "absolute",
@@ -113,6 +142,9 @@ export default function Projects() {
         {/* SCROLL CONTAINER */}
         <div
           id="project-scroll"
+          ref={scrollRef}
+          onMouseEnter={() => (pauseRef.current = true)}
+          onMouseLeave={() => (pauseRef.current = false)}
           style={{
             display: "flex",
             gap: "1.5rem",
@@ -132,7 +164,7 @@ export default function Projects() {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                flex: "0 0 calc(33.333% - 1rem)", // 3 cards visible
+                flex: "0 0 calc(33.333% - 1rem)",
                 scrollSnapAlign: "start",
               }}
             >
@@ -151,12 +183,14 @@ export default function Projects() {
                   cursor: "pointer",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.transform =
+                    "translateY(-6px)";
                   e.currentTarget.style.boxShadow =
                     "0 10px 25px var(--shadow-color)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.transform =
+                    "translateY(0)";
                   e.currentTarget.style.boxShadow =
                     "0 4px 12px var(--shadow-color)";
                 }}
@@ -197,7 +231,7 @@ export default function Projects() {
                     {project.title}
                   </h3>
 
-                  {/* STATUS (for only in progress) */}
+                  {/* STATUS (ONLY IN PROGRESS) */}
                   {project.status === "In Progress" && (
                     <span
                       style={{
@@ -263,6 +297,7 @@ export default function Projects() {
         #project-scroll::-webkit-scrollbar {
           display: none;
         }
+
         #project-scroll {
           -ms-overflow-style: none;
           scrollbar-width: none;
