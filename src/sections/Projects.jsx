@@ -164,7 +164,7 @@ export default function Projects() {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                flex: "0 0 calc(33.333% - 1rem)",
+                flex: "0 0 33.333%",
                 scrollSnapAlign: "start",
               }}
             >
@@ -180,7 +180,8 @@ export default function Projects() {
                   transition:
                     "transform 0.2s ease, box-shadow 0.2s ease",
                   cursor: "pointer",
-                  minWidth: 0,
+                  // minWidth: 0,
+                  height: "100%",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform =
@@ -306,7 +307,6 @@ export default function Projects() {
         @media (max-width: 900px) {
         #project-scroll a {
         flex: 0 0 100%;
-        max-width: 100%;
         }
         
         #project-scroll {
@@ -314,7 +314,7 @@ export default function Projects() {
         }
         
         #project-scroll img {
-        height: 150px !important;
+        height: 170px !important;
         }
         }
       `}</style>
