@@ -177,10 +177,10 @@ export default function Projects() {
                   boxShadow: "0 4px 12px var(--shadow-color)",
                   display: "flex",
                   flexDirection: "column",
-                  height: "100%",
                   transition:
                     "transform 0.2s ease, box-shadow 0.2s ease",
                   cursor: "pointer",
+                  minWidth: 0,
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform =
@@ -305,19 +305,16 @@ export default function Projects() {
 
         @media (max-width: 900px) {
         #project-scroll a {
-        flex: 0 0 92%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        }
+        
+        #project-scroll {
+        scroll-snap-type: x mandatory;
         }
         
         #project-scroll img {
-        height: 160px !important;
-        }
-        
-        #project-scroll h3 {
-        font-size: 1.05rem;
-        }
-        
-        #project-scroll p {
-        font-size: 0.9rem;
+        height: 150px !important;
         }
         }
       `}</style>
