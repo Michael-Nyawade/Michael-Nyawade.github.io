@@ -103,6 +103,10 @@ export default function NavBar() {
             alignItems: "flex-start",
             padding: "1rem",
             gap: "1rem",
+            borderRadius: "0 0 8px 8px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+            animation: "slideDown 0.3s ease forwards",
+            overflow: "hidden",
           }}
         >
           {sections.map((section) => (
@@ -126,6 +130,11 @@ export default function NavBar() {
 
       {/* Responsive styles */}
       <style>{`
+        @keyframes slideDown {
+          0% { transform: translateY(-10%); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+        }
+        
         @media (max-width: 768px) {
           .desktop-menu { display: none; }
           .mobile-menu { display: block; }
