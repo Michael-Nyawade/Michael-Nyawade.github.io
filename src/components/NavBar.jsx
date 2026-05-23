@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
@@ -95,6 +96,7 @@ export default function NavBar() {
         ))}
       </div>
 
+      <ThemeToggle />
       {/* Mobile hamburger */}
       <div className="mobile-menu" style={{ display: "none", cursor: "pointer" }}>
         <button

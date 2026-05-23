@@ -1,67 +1,18 @@
-:root {
-  --primary-color: #1e1e1e;
-  --secondary-color: #121212;
-  --text-color: #f5f5f5;
-  --accent-color: #61dafb;
-  --heading-color: #ffffff;
-  --paragraph-color: #cccccc;
-  --section-padding: 4rem 0;
-}
-
-body {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-h1, h2, h3 {
-  color: var(--heading-color);
-  margin: 0.5rem 0;
-}
-
-p {
-  color: var(--paragraph-color);
-  line-height: 1.6;
-}
-
-section {
-  padding: var(--section-padding);
-}
-
-ul {
-  margin: 0;
-  padding-left: 1.5rem;
-}
-
-/* Responsive project grid */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Typography adjustments */
-h2 {
-  font-size: 1.8rem;
-}
-p {
-  font-size: 1rem;
+/* Section spacing */
+section {
+  padding: 4rem 0;
 }
 
-@media (max-width: 600px) {
-  h2 {
-    font-size: 1.5rem;
-  }
-  p {
-    font-size: 0.9rem;
-  }
+/* Project grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 /* Contact Section */
@@ -76,12 +27,13 @@ p {
   margin: 2rem auto;
 }
 
+/* Contact heading */
 .section-heading h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--heading-color);
   text-decoration: underline;
+  color: var(--heading-color);
 }
 
 .section-heading h2 i {
@@ -91,12 +43,13 @@ p {
 
 .section-subtitle {
   font-size: 1rem;
-  color: var(--paragraph-color);
+  color: var(--text-color);
   max-width: 600px;
   margin: 0 auto;
   font-style: italic;
 }
 
+/* Contact icons */
 .contact-icons {
   display: flex;
   justify-content: center;
