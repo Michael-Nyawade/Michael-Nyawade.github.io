@@ -7,14 +7,14 @@ const testimonials = [
       "I've had the pleasure of working with Michael, a highly analytical and dependable professional—an asset to any research and planning team, with strong skills in data analysis, reporting, and strategic support.",
     name: "Jemimah Muraya",
     role: "Manager Research and Planning",
-    company: "Privatization Commission",
+    company: "Privatization Authority",
   },
   {
     quote:
       "I've found Michael to be a proactive, analytical, and reliable team member—consistently delivering quality research, insightful analysis, and valuable support to strategic planning and performance reporting initiatives.",
     name: "Jairus Koech",
     role: "Principal Research and Planning Officer",
-    company: "Privatization Commission",
+    company: "Privatization Authority",
   },
   {
     quote:
@@ -121,7 +121,7 @@ export default function Testimonials() {
                 <div className="testimonial-quote-ico">
                     <FaQuoteLeft />
                 </div>
-                
+
                 <p>“{testimonial.quote}”</p>
 
                 <footer>

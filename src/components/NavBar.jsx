@@ -10,21 +10,36 @@ export default function NavBar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ["hero", "about", "experience", "skills", "projects", "contact"];
-      const scrollPos = window.scrollY + window.innerHeight / 2;
+      const sections = [
+        "hero",
+        "about",
+        "experience",
+        "skills",
+        "projects",
+        "testimonials",
+        "contact",
+      ];
 
-      let current = "hero";
+      const viewportCenter = window.innerHeight / 2;
 
-      for (let i = 0; i < sections.length; i++) {
-        const el = document.getElementById(sections[i]);
-        if (!el) continue;
+      let closest = "hero";
+      let minDistance = Infinity;
 
-        if (el.offsetTop <= scrollPos) {
-          current = sections[i];
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(sectionCenter - viewportCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closest = id;
         }
-      }
+      });
 
-      setActiveSection(current);
+      setActiveSection(closest);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -46,7 +61,15 @@ export default function NavBar() {
     }
   };
 
-  const sections = ["hero", "about", "experience", "skills", "projects", "contact"];
+  const sections = [
+    "hero",
+    "about",
+    "experience",
+    "skills",
+    "projects",
+    "testimonials",
+    "contact",
+  ];
 
   return (
     <nav
@@ -64,7 +87,13 @@ export default function NavBar() {
       }}
     >
       {/* Logo / Name */}
-      <div style={{ fontWeight: "bold", fontSize: "1.2rem", color: "var(--text-color)" }}>
+      <div
+        style={{
+          fontWeight: "bold",
+          fontSize: "1.2rem",
+          color: "var(--text-color)",
+        }}
+      >
         Michael Nyawade
       </div>
 
@@ -77,7 +106,10 @@ export default function NavBar() {
             style={{
               background: "none",
               border: "none",
-              color: activeSection === section ? "var(--accent-color)" : "var(--text-color)",
+              color:
+                activeSection === section
+                  ? "var(--accent-color)"
+                  : "var(--text-color)",
               fontWeight: activeSection === section ? "600" : "400",
               cursor: "pointer",
               position: "relative",
@@ -153,7 +185,10 @@ export default function NavBar() {
               style={{
                 background: "none",
                 border: "none",
-                color: activeSection === section ? "var(--accent-color)" : "var(--text-color)",
+                color:
+                  activeSection === section
+                    ? "var(--accent-color)"
+                    : "var(--text-color)",
                 fontWeight: activeSection === section ? "600" : "400",
                 fontSize: "1rem",
                 cursor: "pointer",
