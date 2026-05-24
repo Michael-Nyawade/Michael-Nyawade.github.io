@@ -145,7 +145,7 @@ export default function NavBar() {
       <ThemeToggle />
 
       {/* Mobile hamburger */}
-      <div className="mobile-menu" style={{ display: "none", cursor: "pointer" }}>
+      <div className="mobile-menu" style={{ cursor: "pointer" }}>
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
