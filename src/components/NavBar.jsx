@@ -178,6 +178,7 @@ export default function NavBar() {
 
           {/* Menu panel */}
           <div
+            className="mobile-menu-panel"
             style={{
               position: "absolute",
               top: "100%",
