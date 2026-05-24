@@ -108,3 +108,31 @@ section {
   font-size: 0.9rem;
   font-weight: 600;
 }
+
+.contact-method {
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle background hover glow */
+.contact-method::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-color);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.25s ease;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.contact-method:hover::before {
+  opacity: 0.08;
+  transform: scale(1);
+}
+
+/* smoother hover feel */
+.contact-method:hover {
+  transform: translateY(-5px);
+}
