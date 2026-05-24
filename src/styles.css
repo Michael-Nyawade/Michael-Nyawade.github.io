@@ -301,3 +301,34 @@ body::after {
 
   border-top: 1px solid var(--border-color);
 }
+
+/* Navbar responsiveness  */
+.desktop-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

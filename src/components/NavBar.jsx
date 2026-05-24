@@ -98,7 +98,7 @@ export default function NavBar() {
       </div>
 
       {/* Desktop menu */}
-      <div className="desktop-menu" style={{ display: "flex", gap: "1.5rem" }}>
+      <div className="desktop-menu" style={{ gap: "1.5rem" }}>
         {sections.map((section) => (
           <button
             key={section}
@@ -203,17 +203,6 @@ export default function NavBar() {
       )}
 
       {/* Responsive styles */}
-      <style>{`
-        @keyframes slideDown {
-          0% { transform: translateY(-10%); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-          .desktop-menu { display: none; }
-          .mobile-menu { display: block; }
-        }
-      `}</style>
     </nav>
   );
 }
