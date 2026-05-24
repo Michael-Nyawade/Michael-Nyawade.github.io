@@ -45,18 +45,22 @@ export default function Contact() {
         {contacts.map((contact) => {
           const Icon = contact.icon;
 
+          const isExternal =
+            !contact.link.startsWith("tel:") &&
+            !contact.link.startsWith("mailto:");
+
           return (
-            <div className="contact-method" key={contact.name}>
-              <a
-                href={contact.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={contact.aria}
-              >
-                <Icon />
-              </a>
+            <a
+              key={contact.name}
+              className="contact-method"
+              href={contact.link}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              aria-label={contact.aria}
+            >
+              <Icon />
               <span>{contact.name}</span>
-            </div>
+            </a>
           );
         })}
       </div>
