@@ -276,3 +276,28 @@ body::after {
     flex: 0 0 100%;
   }
 }
+
+/* Decorative quote icon */
+.testimonial-quote-icon {
+  font-size: 2rem;
+
+  color: var(--accent-color);
+
+  opacity: 0.18;
+
+  margin-bottom: 1rem;
+}
+
+/* Slightly better text hierarchy */
+.testimonial-card p {
+  font-size: 0.98rem;
+}
+
+/* Footer separation */
+.testimonial-card footer {
+  margin-top: 1.5rem;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--border-color);
+}

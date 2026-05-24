@@ -118,6 +118,10 @@ export default function Testimonials() {
               className="testimonial-slide"
             >
               <blockquote className="testimonial-card">
+                <div className="testimonial-quote-ico">
+                    <FaQuoteLeft />
+                </div>
+                
                 <p>“{testimonial.quote}”</p>
 
                 <footer>
