@@ -13,13 +13,18 @@ export default function NavBar() {
       const sections = ["hero", "about", "experience", "skills", "projects", "contact"];
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
+      let current = "hero";
+
+      for (let i = 0; i < sections.length; i++) {
         const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPos) {
-          setActiveSection(sections[i]);
-          break;
+        if (!el) continue;
+
+        if (el.offsetTop <= scrollPos) {
+          current = sections[i];
         }
       }
+
+      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,9 +33,16 @@ export default function NavBar() {
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // Close mobile menu on link click
+      const yOffset = -70; // adjust based on navbar height
+      const y =
+        element.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+      setMenuOpen(false);
     }
   };
 
@@ -97,6 +109,7 @@ export default function NavBar() {
       </div>
 
       <ThemeToggle />
+
       {/* Mobile hamburger */}
       <div className="mobile-menu" style={{ display: "none", cursor: "pointer" }}>
         <button

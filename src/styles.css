@@ -3,6 +3,7 @@
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 /* Section spacing */
@@ -135,4 +136,15 @@ section {
 /* smoother hover feel */
 .contact-method:hover {
   transform: translateY(-5px);
+}
+
+/* Creating enough viewport for Contact */
+#contact {
+  scroll-margin-bottom: 100px;
+}
+
+body::after {
+  content: "";
+  display: block;
+  height: 14vh;
 }
