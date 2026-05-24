@@ -159,50 +159,64 @@ export default function NavBar() {
         </button>
       </div>
 
-      {/* Mobile links */}
+      {/* Mobile links with overlay */}
       {menuOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "100%",
-            right: 0,
-            backgroundColor: "var(--secondary-color)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            padding: "1rem",
-            gap: "1rem",
-            borderRadius: "0 0 8px 8px",
-            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-            animation: "slideDown 0.3s ease forwards",
-            overflow: "hidden",
-          }}
-        >
-          {sections.map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              style={{
-                background: "none",
-                border: "none",
-                color:
-                  activeSection === section
-                    ? "var(--accent-color)"
-                    : "var(--text-color)",
-                fontWeight: activeSection === section ? "600" : "400",
-                fontSize: "1rem",
-                cursor: "pointer",
-              }}
-            >
-              {section === "hero"
-                ? "Home"
-                : section.charAt(0).toUpperCase() + section.slice(1)}
-            </button>
-          ))}
-        </div>
-      )}
+        <>
+          {/* Overlay */}
+          <div
+            onClick={() => setMenuOpen(false)}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              backgroundColor: "rgba(0,0,0,0.4)",
+              zIndex: 999,
+            }}
+          />
 
-      {/* Responsive styles */}
+          {/* Menu panel */}
+          <div
+            style={{
+              position: "absolute",
+              top: "100%",
+              right: 0,
+              backgroundColor: "var(--secondary-color)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              padding: "1rem",
+              gap: "1rem",
+              borderRadius: "0 0 8px 8px",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+              zIndex: 1000,
+            }}
+          >
+            {sections.map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color:
+                    activeSection === section
+                      ? "var(--accent-color)"
+                      : "var(--text-color)",
+                  fontWeight: activeSection === section ? "600" : "400",
+                  fontSize: "1rem",
+                  cursor: "pointer",
+                }}
+              >
+                {section === "hero"
+                  ? "Home"
+                  : section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
     </nav>
   );
 }
