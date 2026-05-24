@@ -85,7 +85,9 @@ export default function NavBar() {
               transition: "color 0.3s ease, font-weight 0.3s ease",
             }}
           >
-            {section.charAt(0).toUpperCase() + section.slice(1)}
+            {section === "hero"
+              ? "Home"
+              : section.charAt(0).toUpperCase() + section.slice(1)}
             {/* underline for active section */}
             <span
               style={{
@@ -157,7 +159,9 @@ export default function NavBar() {
                 cursor: "pointer",
               }}
             >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+              {section === "hero"
+                ? "Home"
+                : section.charAt(0).toUpperCase() + section.slice(1)}
             </button>
           ))}
         </div>
