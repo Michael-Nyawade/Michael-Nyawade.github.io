@@ -21,10 +21,12 @@ section {
 #contact {
   padding: 3rem 1rem;
   text-align: center;
+
   background-color: var(--secondary-color);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow-color);
+
   max-width: 800px;
   margin: 2rem auto;
 }
@@ -34,11 +36,12 @@ section {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+
   text-decoration: underline;
   color: var(--heading-color);
 }
 
-.section-heading h2 i {
+.section-heading h2 svg {
   margin-right: 0.5rem;
   color: var(--accent-color);
 }
@@ -51,35 +54,57 @@ section {
   font-style: italic;
 }
 
-/* Contact icons */
+/* Contact icons row */
 .contact-icons {
   display: flex;
   justify-content: center;
+  align-items: center;
+
   gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
+/* Contact "button" */
 .contact-method {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
   gap: 0.5rem;
-}
 
-.contact-method a {
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.contact-method a:hover {
+  text-decoration: none;
   color: var(--heading-color);
-  transform: scale(1.1);
+
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+
+  min-width: 90px;
+
+  transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
+/* Icon styling */
+.contact-method svg {
+  font-size: 1.6rem;
+  color: var(--accent-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.contact-method:hover {
+  transform: translateY(-4px);
+  color: var(--accent-color);
+}
+
+.contact-method:hover svg {
+  transform: scale(1.15);
+  color: var(--heading-color);
+}
+
+/* Label */
 .contact-method span {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--heading-color);
 }
