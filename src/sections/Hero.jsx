@@ -16,12 +16,13 @@ export default function Hero() {
     <section
       id="hero"
       style={{
-        minHeight: "85vh",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "space-between",
         gap: "4rem",
-        padding: "4rem 1.5rem",
+        padding: "1rem 1.5rem",
+        paddingTop: "0",
+        paddingBottom: "0",
         flexWrap: "wrap",
       }}
     >
