@@ -184,7 +184,8 @@ export default function NavBar() {
               left: 0,
               width: "100vw",
               height: "100vh",
-              backgroundColor: "rgba(0,0,0,0.4)",
+              backgroundColor: "rgba(0,0,0,0.35)",
+              backdropFilter: "blur(4px)",
               zIndex: 999,
             }}
           />
@@ -193,24 +194,30 @@ export default function NavBar() {
           <div
             className="mobile-menu-panel"
             style={{
-              position: "absolute",
-              top: "100%",
+              position: "fixed",
+              top: 0,
               right: 0,
+              height: "100vh",
+              width: "260px",
+              paddingTop: "5rem",
               backgroundColor: "var(--secondary-color)",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               padding: "1rem",
               gap: "1rem",
-              borderRadius: "0 0 8px 8px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+              borderRadius: "0",
+              boxShadow: "-8px 0 24px rgba(0, 0, 0, 0.15)",
               zIndex: 1000,
             }}
           >
             {sections.map((section) => (
               <button
                 key={section}
-                onClick={() => scrollToSection(section)}
+                onClick={() => {
+                  scrollToSection(section);
+                  setMenuOpen(false);
+                }}
                 style={{
                   background: "none",
                   border: "none",
