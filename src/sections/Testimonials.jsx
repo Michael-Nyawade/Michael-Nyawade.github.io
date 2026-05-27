@@ -36,27 +36,30 @@ export default function Testimonials() {
   const scrollRef = useRef(null);
   const pauseRef = useRef(false);
 
-  // Auto-scroll interval reference setup
+  // Auto Scroll
   useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
     const interval = setInterval(() => {
-      // Pause auto-scroll when user is interacting with the slider
+      // Skip auto-scroll if user is hovering/interacting
       if (pauseRef.current) return;
 
-      const container = scrollRef.current;
-      if (!container) return;
+      const maxScroll = container.scrollWidth - container.clientWidth;
 
-      // Determine maximum scroll position
-      const maxScroll =
-        container.scrollWidth - container.clientWidth;
+      // If no overflow, do nothing
+      if (maxScroll <= 0) return;
 
-      // Move in fixed steps for smooth sliding effect
-      const nextScroll = container.scrollLeft + 350;
+      const next = container.scrollLeft + 350;
 
       // Loop back to start when reaching the end
-      if (nextScroll >= maxScroll) {
+      if (next >= maxScroll) {
         container.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        container.scrollBy({ left: 350, behavior: "smooth" });
+        container.scrollTo({
+          left: next,
+          behavior: "smooth",
+        });
       }
     }, 5000);
 
@@ -85,7 +88,7 @@ export default function Testimonials() {
           </h2>
 
           <p className="section-subtitle">
-            Endorsements from professionals I’ve collaborated with
+            Endorsements from professionals I've collaborated with
           </p>
         </div>
 
@@ -118,7 +121,6 @@ export default function Testimonials() {
             {testimonials.map((t, index) => (
               <div key={index} className="testimonial-slide">
                 <blockquote className="testimonial-card">
-                  
                   {/* Quote icon */}
                   <div className="testimonial-icon">
                     <FaQuoteLeft />
