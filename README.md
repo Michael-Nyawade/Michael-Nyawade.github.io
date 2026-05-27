@@ -46,7 +46,7 @@ I enjoy building data-driven solutions, analyzing trends, and transforming insig
 ---
 
 ## Contact
-- **Email:** mikeokello17@gmail@gmail.com  
+- **Email:** mikeokello17@gmail.com  
 - **LinkedIn:** [Michael Nyawade](https://www.linkedin.com/in/michael-nyawade-9a02b5276/)  
 - **GitHub:** [Michael-Nyawade](https://github.com/Michael-Nyawade)  
 
@@ -55,7 +55,7 @@ I enjoy building data-driven solutions, analyzing trends, and transforming insig
 ## Features
 
 - Responsive design for desktop and mobile  
-- Dark and light theme toggle (in progress)  
+- Dark and light theme toggle  
 - Clean, modern UI with smooth navigation  
 
 ---
