@@ -2,23 +2,30 @@ import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
+  // Track whether the page has been scrolled past threshold
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
-  const [menuOpen, setMenuOpen] = useState(false); // Mobile menu toggle
 
+  // Track which section is currently active in viewport
+  const [activeSection, setActiveSection] = useState("hero");
+
+  // Track whether mobile menu is open
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Sections to display in navigation
+  const sections = [
+    "hero",
+    "about",
+    "experience",
+    "skills",
+    "projects",
+    "testimonials",
+    "contact",
+  ];
+
+  // Handle scroll events: update scrolled state and active section
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      const sections = [
-        "hero",
-        "about",
-        "experience",
-        "skills",
-        "projects",
-        "testimonials",
-        "contact",
-      ];
 
       const viewportCenter = window.innerHeight / 2;
 
@@ -46,19 +53,16 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // New useEffect to lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
 
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [menuOpen]);
 
+  // Smooth scroll to section and close mobile menu
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
 
@@ -74,165 +78,63 @@ export default function NavBar() {
     }
   };
 
-  const sections = [
-    "hero",
-    "about",
-    "experience",
-    "skills",
-    "projects",
-    "testimonials",
-    "contact",
-  ];
+  // Format section labels (capitalize, replace "hero" with "Home")
+  const formatLabel = (section) =>
+    section === "hero"
+      ? "Home"
+      : section.charAt(0).toUpperCase() + section.slice(1);
 
   return (
-    <nav
-      style={{
-        position: "sticky",
-        top: 0,
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1rem",
-        backgroundColor: scrolled ? "var(--secondary-color)" : "transparent",
-        backdropFilter: scrolled ? "blur(10px)" : "none",
-        transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
-        zIndex: 1000,
-      }}
-    >
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* Logo / Name */}
-      <div
-        style={{
-          fontWeight: "bold",
-          fontSize: "1.2rem",
-          color: "var(--text-color)",
-        }}
-      >
-        Michael Nyawade
-      </div>
+      <div className="navbar-logo">Michael Nyawade</div>
 
-      {/* Desktop menu */}
-      <div className="desktop-menu" style={{ gap: "1.5rem" }}>
+      {/* Desktop navigation menu */}
+      <div className="desktop-menu">
         {sections.map((section) => (
           <button
             key={section}
             onClick={() => scrollToSection(section)}
-            style={{
-              background: "none",
-              border: "none",
-              color:
-                activeSection === section
-                  ? "var(--accent-color)"
-                  : "var(--text-color)",
-              fontWeight: activeSection === section ? "600" : "400",
-              cursor: "pointer",
-              position: "relative",
-              padding: "0.25rem 0",
-              transition: "color 0.3s ease, font-weight 0.3s ease",
-            }}
+            className={`nav-link ${
+              activeSection === section ? "active" : ""
+            }`}
           >
-            {section === "hero"
-              ? "Home"
-              : section.charAt(0).toUpperCase() + section.slice(1)}
-            {/* underline for active section */}
-            <span
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                width: activeSection === section ? "100%" : "0%",
-                height: "2px",
-                backgroundColor: "var(--accent-color)",
-                transition: "width 0.3s ease",
-              }}
-              className="nav-underline"
-            />
-            <style>{`
-              button.nav-underline:hover span {
-                width: 100%;
-              }
-            `}</style>
+            {formatLabel(section)}
           </button>
         ))}
       </div>
 
+      {/* Theme toggle button */}
       <ThemeToggle />
 
-      {/* Mobile hamburger */}
-      <div className="mobile-menu" style={{ cursor: "pointer" }}>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            background: "none",
-            border: "none",
-            fontSize: "1.5rem",
-            color: "var(--text-color)",
-          }}
-        >
-          ☰
-        </button>
-      </div>
+      {/* Mobile hamburger toggle */}
+      <button
+        className="mobile-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
 
-      {/* Mobile links with overlay */}
+      {/* Mobile menu with overlay */}
       {menuOpen && (
         <>
-          {/* Overlay */}
+          {/* Overlay to close menu when clicked */}
           <div
+            className="mobile-overlay"
             onClick={() => setMenuOpen(false)}
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              backgroundColor: "rgba(0,0,0,0.35)",
-              backdropFilter: "blur(4px)",
-              zIndex: 999,
-            }}
           />
 
-          {/* Menu panel */}
-          <div
-            className="mobile-menu-panel"
-            style={{
-              position: "fixed",
-              top: 0,
-              right: 0,
-              height: "100vh",
-              width: "260px",
-              paddingTop: "5rem",
-              backgroundColor: "var(--secondary-color)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              padding: "1rem",
-              gap: "1rem",
-              borderRadius: "0",
-              boxShadow: "-8px 0 24px rgba(0, 0, 0, 0.15)",
-              zIndex: 1000,
-            }}
-          >
+          {/* Mobile menu panel */}
+          <div className="mobile-panel">
             {sections.map((section) => (
               <button
                 key={section}
-                onClick={() => {
-                  scrollToSection(section);
-                  setMenuOpen(false);
-                }}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color:
-                    activeSection === section
-                      ? "var(--accent-color)"
-                      : "var(--text-color)",
-                  fontWeight: activeSection === section ? "600" : "400",
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                }}
+                onClick={() => scrollToSection(section)}
+                className={`mobile-link ${
+                  activeSection === section ? "active" : ""
+                }`}
               >
-                {section === "hero"
-                  ? "Home"
-                  : section.charAt(0).toUpperCase() + section.slice(1)}
+                {formatLabel(section)}
               </button>
             ))}
           </div>
