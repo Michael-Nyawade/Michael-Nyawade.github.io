@@ -29,40 +29,42 @@ const contacts = [
 
 export default function Contact() {
   return (
-    <section id="contact">
-      <div className="section-heading">
-        <h2>
-          <FaEnvelope /> Get in Touch
-        </h2>
+    <section id="contact" className="section">
+      <div className="section-inner">
+        <div className="section-heading">
+          <h2 className="section-title">
+            <FaEnvelope /> Get in Touch
+          </h2>
 
-        <p className="section-subtitle">
-          I'm open to opportunities, collaboration, or just a good data conversation.
-          Feel free to get in touch!
-        </p>
-      </div>
+          <p className="section-subtitle">
+            I'm open to opportunities, collaboration, or just a good data conversation.
+            Feel free to get in touch!
+          </p>
+        </div>
 
-      <div className="contact-icons" aria-label="Contact links">
-        {contacts.map((contact) => {
-          const Icon = contact.icon;
+        <div className="contact-icons" aria-label="Contact links">
+          {contacts.map((contact) => {
+            const Icon = contact.icon;
 
-          const isExternal =
-            !contact.link.startsWith("tel:") &&
-            !contact.link.startsWith("mailto:");
+            const isExternal =
+              !contact.link.startsWith("tel:") &&
+              !contact.link.startsWith("mailto:");
 
-          return (
-            <a
-              key={contact.name}
-              className="contact-method"
-              href={contact.link}
-              target={isExternal ? "_blank" : undefined}
-              rel={isExternal ? "noopener noreferrer" : undefined}
-              aria-label={contact.aria}
-            >
-              <Icon />
-              <span>{contact.name}</span>
-            </a>
-          );
-        })}
+            return (
+              <a
+                key={contact.name}
+                className="contact-method"
+                href={contact.link}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                aria-label={contact.aria}
+              >
+                <Icon />
+                <span>{contact.name}</span>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
