@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -21,6 +22,8 @@ export default function App() {
       <Testimonials />
       <Contact />
       <Footer />
+
+      <BackToTop />
     </>
   );
 }
