@@ -17,41 +17,13 @@ const techStack = [
 
 export default function About() {
   return (
-    <section id="about" style={{ padding: "5rem 1.5rem" }}>
-      <div
-        style={{
-          display: "flex",
-          gap: "3rem",
-          alignItems: "flex-start",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          maxWidth: "1100px",
-          margin: "0 auto",
-        }}
-      >
+    <section id="about" className="section">
+      <div className="section-inner about-grid">
         {/* LEFT CONTENT */}
-        <div
-          data-aos="fade-right"
-          style={{ flex: "1 1 600px", textAlign: "left" }}
-        >
-          <p
-            style={{
-              color: "var(--accent-color)",
-              fontWeight: "600",
-              letterSpacing: "1px",
-              marginBottom: "1rem",
-            }}
-          >
-            Professional Summary
-          </p>
+        <div data-aos="fade-right" className="about-text">
+          <p className="about-kicker">Professional Summary</p>
 
-          <p
-            style={{
-              lineHeight: 1.9,
-              marginBottom: "1.5rem",
-              opacity: 0.9,
-            }}
-          >
+          <p className="about-paragraph">
             I have a background in statistics and data science, with professional
             experience across finance, research and planning, and software
             development. My career journey began in fiscal analysis, progressed
@@ -59,13 +31,7 @@ export default function About() {
             as a software developer apprentice.
           </p>
 
-          <p
-            style={{
-              lineHeight: 1.9,
-              marginBottom: "1.5rem",
-              opacity: 0.9,
-            }}
-          >
+          <p className="about-paragraph">
             At the core, my passion lies in data science — building systems that
             merge analytics, engineering, and real-world decision-making. I
             enjoy creating data-driven solutions that transform insights into
@@ -74,64 +40,30 @@ export default function About() {
             technologies.
           </p>
 
-          <p style={{ lineHeight: 1.9, opacity: 0.9 }}>
+          <p className="about-paragraph">
             Currently, I am focused on strengthening my software engineering
             skills while continuing to explore machine learning, backend
             systems, and scalable data applications.
           </p>
         </div>
 
-        {/* RIGHT QUICK FACTS CARD */}
-        <div
-          style={{
-            backgroundColor: "var(--secondary-color)",
-            border: "1px solid var(--border-color)",
-            borderRadius: "20px",
-            padding: "2rem",
-            boxShadow: "0 8px 24px var(--shadow-color)",
-          }}
-        >
-          {/* TECH STACK */}
-          <h3 style={{ marginBottom: "1rem", color: "var(--accent-color)" }}>
-            Tech Stack
-          </h3>
+        {/* RIGHT CARD */}
+        <div className="about-card" data-aos="fade-left">
+          <h3 className="about-title">Tech Stack</h3>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "1rem",
-              marginBottom: "2rem",
-            }}
-          >
+          <div className="tech-grid">
             {techStack.map((tech, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: "0.3rem",
-                  fontSize: "0.8rem",
-                }}
-              >
-                <img
-                  src={tech.logo}
-                  alt={tech.name}
-                  style={{ width: "28px", height: "28px" }}
-                />
+              <div key={i} className="tech-item">
+                <img src={tech.logo} alt={tech.name} />
                 <span>{tech.name}</span>
               </div>
             ))}
           </div>
 
-          {/* EDUCATION */}
-          <h3 style={{ marginBottom: "1rem", color: "var(--accent-color)" }}>
-            Education
-          </h3>
+          <h3 className="about-title">Education</h3>
 
-          <div style={{ lineHeight: 1.6 }}>
-            <p style={{ marginBottom: "0.5rem" }}>🎓 BSc Statistics — JKUAT</p>
+          <div className="about-education">
+            <p>🎓 BSc Statistics — JKUAT</p>
             <p>📚 Explore AI Data Science</p>
           </div>
         </div>
