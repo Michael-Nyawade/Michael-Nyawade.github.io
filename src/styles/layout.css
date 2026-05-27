@@ -1,0 +1,19 @@
+/* =========================
+   SECTION LAYOUT SYSTEM
+========================= */
+
+.section {
+  padding: 4rem 1.5rem;
+}
+
+.section-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Tighter spacing on mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+}

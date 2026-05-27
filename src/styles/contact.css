@@ -1,0 +1,120 @@
+/* =========================
+   CONTACT SECTION
+========================= */
+
+#contact {
+  padding: 3rem 1rem;
+  text-align: center;
+
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+
+  max-width: 800px;
+  margin: 2rem auto;
+
+  scroll-margin-bottom: 100px;
+}
+
+/* Contact heading */
+.section-heading h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+
+  text-decoration: underline;
+  color: var(--heading-color);
+}
+
+.section-heading h2 svg {
+  margin-right: 0.5rem;
+  color: var(--accent-color);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* Contact icons row */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Contact button */
+.contact-method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  text-decoration: none;
+  color: var(--heading-color);
+
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+
+  min-width: 90px;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon styling */
+.contact-method svg {
+  font-size: 1.6rem;
+  color: var(--accent-color);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.contact-method:hover {
+  transform: translateY(-5px);
+  color: var(--accent-color);
+}
+
+.contact-method:hover svg {
+  transform: scale(1.15);
+  color: var(--heading-color);
+}
+
+/* Label */
+.contact-method span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* subtle background hover glow */
+.contact-method::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-color);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.25s ease;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.contact-method:hover::before {
+  opacity: 0.08;
+  transform: scale(1);
+}

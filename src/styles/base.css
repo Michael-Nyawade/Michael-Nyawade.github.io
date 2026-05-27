@@ -1,0 +1,14 @@
+/* =========================
+   BASE STYLES
+========================= */
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Section spacing */
+section {
+  padding: 1.5rem 0;
+}
