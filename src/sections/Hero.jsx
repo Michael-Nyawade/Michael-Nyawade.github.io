@@ -6,107 +6,37 @@ export default function Hero() {
     const element = document.getElementById(id);
 
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section
-      id="hero"
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "space-between",
-        gap: "4rem",
-        padding: "1rem 1.5rem",
-        paddingTop: "0",
-        paddingBottom: "0",
-        flexWrap: "wrap",
-      }}
-    >
-      {/* LEFT CONTENT */}
-      <div
-        data-aos="fade-right"
-        style={{
-          flex: "1 1 500px",
-          textAlign: "left",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "clamp(2.8rem, 5vw, 5rem)",
-            lineHeight: 1.1,
-            marginBottom: "1rem",
-            whiteSpace: "nowrap",
-          }}
-        >
-          Michael Nyawade
-        </h1>
+    <section id="hero" className="hero">
+      {/* LEFT */}
+      <div className="hero-left" data-aos="fade-right">
+        <h1 className="hero-title">Michael Nyawade</h1>
 
-        <h2
-          style={{
-            fontSize: "clamp(1.1rem, 1.7vw, 2rem)",
-            fontWeight: "500",
-            color: "var(--accent-color)",
-            marginBottom: "1.5rem",
-          }}
-        >
+        <h2 className="hero-subtitle">
           Statistician | Data Scientist | Software Developer
         </h2>
 
-        <p
-          style={{
-            maxWidth: "650px",
-            lineHeight: 1.8,
-            fontSize: "1.05rem",
-            opacity: 0.9,
-          }}
-        >
+        <p className="hero-description">
           I analyze data to uncover insights, build data-driven systems, and
           develop software solutions.
         </p>
 
         {/* BUTTONS */}
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            marginTop: "2rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="hero-buttons">
           <button
+            className="btn btn-primary"
             onClick={() => scrollToSection("projects")}
-            style={{
-              backgroundColor: "var(--accent-color)",
-              color: "#fff",
-              border: "none",
-              padding: "0.9rem 1.4rem",
-              borderRadius: "10px",
-              fontWeight: "600",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
           >
-            View Projects
-            <FaArrowRight />
+            View Projects <FaArrowRight />
           </button>
 
           <button
+            className="btn btn-secondary"
             onClick={() => scrollToSection("contact")}
-            style={{
-              backgroundColor: "transparent",
-              color: "var(--text-color)",
-              border: "1px solid var(--border-color)",
-              padding: "0.9rem 1.4rem",
-              borderRadius: "10px",
-              fontWeight: "600",
-              cursor: "pointer",
-            }}
           >
             Contact Me
           </button>
@@ -115,40 +45,19 @@ export default function Hero() {
             href="/Michael_Nyawade_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              backgroundColor: "var(--secondary-color)",
-              color: "var(--text-color)",
-              border: "1px solid var(--border-color)",
-              padding: "0.9rem 1.4rem",
-              borderRadius: "10px",
-              fontWeight: "600",
-              textDecoration: "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className="btn btn-tertiary"
           >
             View CV
           </a>
         </div>
 
-        {/* SOCIAL ICONS */}
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            marginTop: "2rem",
-          }}
-        >
+        {/* SOCIAL */}
+        <div className="hero-social">
           <a
             href="https://github.com/Michael-Nyawade"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              fontSize: "2.8rem",
-              color: "var(--text-color)",
-              transition: "0.2s ease",
-            }}
+            className="social-icon"
           >
             <FaGithub />
           </a>
@@ -157,60 +66,21 @@ export default function Hero() {
             href="https://www.linkedin.com/in/michael-nyawade-9a02b5276/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              fontSize: "2.8rem",
-              color: "var(--text-color)",
-              transition: "0.2s ease",
-            }}
+            className="social-icon"
           >
             <FaLinkedin />
           </a>
         </div>
       </div>
 
-      {/* RIGHT PROFILE IMAGE */}
-      <div
-        data-aos="fade-left"
-        style={{
-          flex: "1 1 350px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "320px",
-            height: "320px",
-            borderRadius: "50%",
-            background:
-              "linear-gradient(135deg, var(--accent-color), transparent)",
-            padding: "4px",
-            boxShadow: "0 10px 30px var(--shadow-color)",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "50%",
-              overflow: "hidden",
-              backgroundColor: "var(--bg-color)",
-            }}
-          >
-            <img
-              src={profileImg}
-              alt="Michael Nyawade"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center top",
-                borderRadius: "50%",
-                display: "block",
-              }}
-            />
-          </div>
+      {/* RIGHT */}
+      <div className="hero-right" data-aos="fade-left">
+        <div className="hero-image-wrapper">
+          <img
+            src={profileImg}
+            alt="Michael Nyawade"
+            className="hero-image"
+          />
         </div>
       </div>
     </section>
