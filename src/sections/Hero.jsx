@@ -110,6 +110,26 @@ export default function Hero() {
           >
             Contact Me
           </button>
+
+          <a
+            href="/Michael_Nyawade_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "var(--secondary-color)",
+              color: "var(--text-color)",
+              border: "1px solid var(--border-color)",
+              padding: "0.9rem 1.4rem",
+              borderRadius: "10px",
+              fontWeight: "600",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            View CV
+          </a>
         </div>
 
         {/* SOCIAL ICONS */}
@@ -163,7 +183,8 @@ export default function Hero() {
             width: "320px",
             height: "320px",
             borderRadius: "50%",
-            background: "linear-gradient(135deg, var(--accent-color), transparent)",
+            background:
+              "linear-gradient(135deg, var(--accent-color), transparent)",
             padding: "4px",
             boxShadow: "0 10px 30px var(--shadow-color)",
           }}
