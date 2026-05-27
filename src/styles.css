@@ -1064,3 +1064,167 @@ section {
 
   white-space: nowrap;
 }
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+
+.projects-wrapper {
+  position: relative;
+  margin-top: 2rem;
+}
+
+/* SCROLL AREA */
+.project-scroll {
+  display: flex;
+  gap: 1.5rem;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x mandatory;
+}
+
+.project-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* NAV BUTTONS */
+.project-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 10;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+
+  background: var(--secondary-color);
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.project-nav:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.project-nav.left {
+  left: -40px;
+}
+
+.project-nav.right {
+  right: -40px;
+}
+
+/* CARD */
+.project-card {
+  flex: 0 0 33.333%;
+  scroll-snap-align: start;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-inner {
+  border-radius: 14px;
+  overflow: hidden;
+
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+
+  box-shadow: 0 4px 12px var(--shadow-color);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-inner:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* IMAGE */
+.project-image-wrapper {
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35));
+}
+
+/* CONTENT */
+.project-content {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-description {
+  flex: 1;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* STATUS */
+.project-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+
+  background-color: rgba(255, 165, 0, 0.15);
+  color: var(--accent-color);
+
+  margin-bottom: 0.8rem;
+  width: fit-content;
+}
+
+/* TAGS */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  margin-top: 1rem;
+}
+
+.project-tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+
+  opacity: 0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .project-card {
+    flex: 0 0 100%;
+  }
+
+  .project-image {
+    height: 170px;
+  }
+}

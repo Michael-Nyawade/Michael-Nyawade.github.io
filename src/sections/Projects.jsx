@@ -75,249 +75,96 @@ export default function Projects() {
     return () => clearInterval(interval);
   }, []);
 
+  // MANUAL SCROLL HANDLER (replaces inline arrow button logic)
+  const scroll = (dir) => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    container.scrollBy({
+      left: dir * 350,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section id="projects" style={{ padding: "3rem 1rem" }}>
-      <h2 data-aos="fade-up">Featured Projects</h2>
+    <section id="projects" className="section">
+      <div className="section-inner">
+        <h2 className="section-title" data-aos="fade-up">
+          Featured Projects
+        </h2>
 
-      {/* WRAPPER */}
-      <div
-        style={{
-          position: "relative",
-          maxWidth: "1100px",
-          margin: "2rem auto 0",
-        }}
-      >
-        {/* LEFT BUTTON */}
-        <button
-          onClick={() => {
-            scrollRef.current?.scrollBy({
-              left: -350,
-              behavior: "smooth",
-            });
-          }}
-          style={{
-            position: "absolute",
-            left: "-40px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 10,
-            background: "var(--secondary-color)",
-            border: "1px solid var(--border-color)",
-            color: "var(--text-color)",
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            cursor: "pointer",
-          }}
-        >
-          ‹
-        </button>
+        {/* WRAPPER */}
+        <div className="projects-wrapper">
+          {/* LEFT BUTTON */}
+          <button className="project-nav left" onClick={() => scroll(-1)}>
+            ‹
+          </button>
 
-        {/* RIGHT BUTTON */}
-        <button
-          onClick={() => {
-            scrollRef.current?.scrollBy({
-              left: 350,
-              behavior: "smooth",
-            });
-          }}
-          style={{
-            position: "absolute",
-            right: "-40px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 10,
-            background: "var(--secondary-color)",
-            border: "1px solid var(--border-color)",
-            color: "var(--text-color)",
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            cursor: "pointer",
-          }}
-        >
-          ›
-        </button>
+          {/* RIGHT BUTTON */}
+          <button className="project-nav right" onClick={() => scroll(1)}>
+            ›
+          </button>
 
-        {/* SCROLL CONTAINER */}
-        <div
-          id="project-scroll"
-          ref={scrollRef}
-          onMouseEnter={() => (pauseRef.current = true)}
-          onMouseLeave={() => (pauseRef.current = false)}
-          style={{
-            display: "flex",
-            gap: "1.5rem",
-            overflowX: "auto",
-            scrollBehavior: "smooth",
-            paddingBottom: "1rem",
-            scrollSnapType: "x mandatory",
-          }}
-        >
-          {projects.map((project, index) => (
-            <a
-              key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-aos="fade-up"
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-                flex: "0 0 33.333%",
-                scrollSnapAlign: "start",
-              }}
-            >
-              <div
-                style={{
-                  borderRadius: "14px",
-                  overflow: "hidden",
-                  backgroundColor: "var(--secondary-color)",
-                  border: "1px solid var(--border-color)",
-                  boxShadow: "0 4px 12px var(--shadow-color)",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition:
-                    "transform 0.2s ease, box-shadow 0.2s ease",
-                  cursor: "pointer",
-                  // minWidth: 0,
-                  height: "100%",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateY(-6px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 10px 25px var(--shadow-color)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform =
-                    "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 4px 12px var(--shadow-color)";
-                }}
+          {/* SCROLL CONTAINER */}
+          <div
+            id="project-scroll"
+            ref={scrollRef}
+            className="project-scroll"
+            onMouseEnter={() => (pauseRef.current = true)}
+            onMouseLeave={() => (pauseRef.current = false)}
+          >
+            {projects.map((project, index) => (
+              <a
+                key={index}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card"
+                data-aos="fade-up"
               >
-                {/* IMAGE */}
-                {project.image && (
-                  <div style={{ position: "relative" }}>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      style={{
-                        width: "100%",
-                        height: "180px",
-                        objectFit: "cover",
-                      }}
-                    />
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background:
-                          "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.35))",
-                      }}
-                    />
-                  </div>
-                )}
-
-                {/* CONTENT */}
-                <div
-                  style={{
-                    padding: "1.2rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                  }}
-                >
-                  <h3 style={{ marginBottom: "0.3rem" }}>
-                    {project.title}
-                  </h3>
-
-                  {/* STATUS (ONLY IN PROGRESS) */}
-                  {project.status === "In Progress" && (
-                    <span
-                      style={{
-                        display: "inline-block",
-                        fontSize: "0.75rem",
-                        padding: "0.2rem 0.6rem",
-                        borderRadius: "999px",
-                        backgroundColor:
-                          "rgba(255, 165, 0, 0.15)",
-                        color: "var(--accent-color)",
-                        marginBottom: "0.8rem",
-                        width: "fit-content",
-                      }}
-                    >
-                      In Progress
-                    </span>
+                <div className="project-inner">
+                  {/* IMAGE */}
+                  {project.image && (
+                    <div className="project-image-wrapper">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="project-image"
+                      />
+                      <div className="project-image-overlay" />
+                    </div>
                   )}
 
-                  <p
-                    style={{
-                      flex: 1,
-                      lineHeight: 1.6,
-                      opacity: 0.9,
-                    }}
-                  >
-                    {project.description}
-                  </p>
+                  {/* CONTENT */}
+                  <div className="project-content">
+                    <h3>{project.title}</h3>
 
-                  {/* TAGS */}
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.4rem",
-                      marginTop: "1rem",
-                    }}
-                  >
-                    {project.tags?.map((tag, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          fontSize: "0.7rem",
-                          padding: "0.2rem 0.5rem",
-                          borderRadius: "999px",
-                          border:
-                            "1px solid var(--border-color)",
-                          opacity: 0.8,
-                        }}
-                      >
-                        {tag}
+                    {/* STATUS (ONLY IN PROGRESS) */}
+                    {project.status === "In Progress" && (
+                      <span className="project-status">
+                        In Progress
                       </span>
-                    ))}
+                    )}
+
+                    <p className="project-description">
+                      {project.description}
+                    </p>
+
+                    {/* TAGS */}
+                    <div className="project-tags">
+                      {project.tags?.map((tag, i) => (
+                        <span key={i} className="project-tag">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Hide scrollbar */}
-      <style>{`
-        #project-scroll::-webkit-scrollbar {
-          display: none;
-        }
-
-        #project-scroll {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-
-        @media (max-width: 900px) {
-        #project-scroll a {
-        flex: 0 0 100%;
-        }
-        
-        #project-scroll {
-        scroll-snap-type: x mandatory;
-        }
-        
-        #project-scroll img {
-        height: 170px !important;
-        }
-        }
-      `}</style>
     </section>
   );
 }
