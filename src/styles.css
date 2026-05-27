@@ -1228,3 +1228,130 @@ section {
     height: 170px;
   }
 }
+
+/* =========================
+   TESTIMONIALS SECTION
+========================= */
+
+.testimonials-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+}
+
+/* SCROLL AREA */
+.testimonial-scroll {
+  display: flex;
+  gap: 0;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+
+  padding-bottom: 1rem;
+
+  scroll-snap-type: x mandatory;
+}
+
+.testimonial-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* SLIDES */
+.testimonial-slide {
+  flex: 0 0 calc(100% / 3);
+  scroll-snap-align: start;
+}
+
+/* CARD */
+.testimonial-card {
+  height: 100%;
+
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+
+  border-radius: 16px;
+
+  padding: 1.5rem;
+
+  box-shadow: 0 4px 12px var(--shadow-color);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* ICON */
+.testimonial-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  opacity: 0.18;
+  margin-bottom: 1rem;
+}
+
+/* TEXT */
+.testimonial-card p {
+  line-height: 1.8;
+  font-style: italic;
+  font-size: 0.98rem;
+  margin-bottom: 1.2rem;
+}
+
+/* FOOTER */
+.testimonial-card footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+
+  border-top: 1px solid var(--border-color);
+
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.testimonial-card strong {
+  color: var(--accent-color);
+}
+
+/* NAV BUTTONS */
+.testimonial-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 10;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+
+  background: var(--secondary-color);
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.testimonial-nav-btn:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.testimonial-nav-btn.left {
+  left: -40px;
+}
+
+.testimonial-nav-btn.right {
+  right: -40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .testimonial-slide {
+    flex: 0 0 100%;
+  }
+}

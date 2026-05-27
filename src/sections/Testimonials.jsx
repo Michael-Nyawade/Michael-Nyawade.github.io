@@ -36,19 +36,23 @@ export default function Testimonials() {
   const scrollRef = useRef(null);
   const pauseRef = useRef(false);
 
-  // AUTO PLAY
+  // Auto-scroll interval reference setup
   useEffect(() => {
     const interval = setInterval(() => {
+      // Pause auto-scroll when user is interacting with the slider
       if (pauseRef.current) return;
 
       const container = scrollRef.current;
       if (!container) return;
 
+      // Determine maximum scroll position
       const maxScroll =
         container.scrollWidth - container.clientWidth;
 
+      // Move in fixed steps for smooth sliding effect
       const nextScroll = container.scrollLeft + 350;
 
+      // Loop back to start when reaching the end
       if (nextScroll >= maxScroll) {
         container.scrollTo({ left: 0, behavior: "smooth" });
       } else {
@@ -56,84 +60,85 @@ export default function Testimonials() {
       }
     }, 5000);
 
+    // Cleanup interval on unmount
     return () => clearInterval(interval);
   }, []);
 
+  // Manual scroll handler for navigation buttons
+  const scroll = (dir) => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    container.scrollBy({
+      left: dir * 350,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section id="testimonials" style={{ padding: "3rem 1rem" }}>
-      <div className="section-heading">
-        <h2>
-          <FaQuoteLeft /> What Colleagues Say
-        </h2>
+    <section id="testimonials" className="section">
+      <div className="section-inner">
+        {/* Section heading */}
+        <div className="section-heading">
+          <h2 className="section-title">
+            <FaQuoteLeft /> What Colleagues Say
+          </h2>
 
-        <p className="section-subtitle">
-          Endorsements from professionals I&apos;ve collaborated with
-        </p>
-      </div>
+          <p className="section-subtitle">
+            Endorsements from professionals I’ve collaborated with
+          </p>
+        </div>
 
-      <div
-        style={{
-          position: "relative",
-          maxWidth: "1100px",
-          margin: "2rem auto 0",
-        }}
-      >
-        {/* LEFT BUTTON */}
-        <button
-          onClick={() => {
-            scrollRef.current?.scrollBy({
-              left: -350,
-              behavior: "smooth",
-            });
-          }}
-          className="testimonial-nav-btn left"
-        >
-          ‹
-        </button>
+        {/* Testimonials carousel wrapper */}
+        <div className="testimonials-wrapper">
+          {/* Navigation buttons */}
+          <button
+            className="testimonial-nav-btn left"
+            onClick={() => scroll(-1)}
+          >
+            ‹
+          </button>
 
-        {/* RIGHT BUTTON */}
-        <button
-          onClick={() => {
-            scrollRef.current?.scrollBy({
-              left: 350,
-              behavior: "smooth",
-            });
-          }}
-          className="testimonial-nav-btn right"
-        >
-          ›
-        </button>
+          <button
+            className="testimonial-nav-btn right"
+            onClick={() => scroll(1)}
+          >
+            ›
+          </button>
 
-        {/* SCROLL CONTAINER */}
-        <div
-          id="testimonial-scroll"
-          ref={scrollRef}
-          onMouseEnter={() => (pauseRef.current = true)}
-          onMouseLeave={() => (pauseRef.current = false)}
-          className="testimonial-scroll"
-        >
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="testimonial-slide"
-            >
-              <blockquote className="testimonial-card">
-                <div className="testimonial-quote-ico">
+          {/* Horizontal scroll container */}
+          <div
+            id="testimonial-scroll"
+            ref={scrollRef}
+            className="testimonial-scroll"
+            onMouseEnter={() => (pauseRef.current = true)}
+            onMouseLeave={() => (pauseRef.current = false)}
+          >
+            {/* Render testimonial cards */}
+            {testimonials.map((t, index) => (
+              <div key={index} className="testimonial-slide">
+                <blockquote className="testimonial-card">
+                  
+                  {/* Quote icon */}
+                  <div className="testimonial-icon">
                     <FaQuoteLeft />
-                </div>
+                  </div>
 
-                <p>“{testimonial.quote}”</p>
+                  {/* Testimonial text */}
+                  <p>“{t.quote}”</p>
 
-                <footer>
-                  <strong>{testimonial.name}</strong>
-                  <br />
-                  {testimonial.role}
-                  <br />
-                  {testimonial.company}
-                </footer>
-              </blockquote>
-            </div>
-          ))}
+                  {/* Author details */}
+                  <footer>
+                    <strong>{t.name}</strong>
+                    <br />
+                    {t.role}
+                    <br />
+                    {t.company}
+                  </footer>
+                </blockquote>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
