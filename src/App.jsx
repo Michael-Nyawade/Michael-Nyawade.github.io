@@ -1,4 +1,6 @@
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Experience from "./sections/Experience";
@@ -18,6 +20,7 @@ export default function App() {
       <Projects />
       <Testimonials />
       <Contact />
+      <Footer />
     </>
   );
 }
