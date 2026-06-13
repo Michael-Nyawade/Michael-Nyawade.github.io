@@ -14,6 +14,15 @@
 /* Tighter spacing on mobile */
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
