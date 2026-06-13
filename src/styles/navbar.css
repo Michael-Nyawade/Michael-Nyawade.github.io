@@ -24,10 +24,28 @@
 
 .navbar-logo {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-color);
+
   cursor: pointer;
   user-select: none;
+
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  transition: all 0.2s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo:hover {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+  border-color: var(--accent-color);
 }
 
 /* Right side controls */
