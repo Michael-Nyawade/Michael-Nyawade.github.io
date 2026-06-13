@@ -182,4 +182,33 @@
   .mobile-toggle {
     display: block;
   }
+
+  /* Mobile layout */
+  .navbar {
+    justify-content: space-between;
+  }
+
+  /* Hide logo on mobile */
+  .navbar-logo {
+    display: none;
+  }
+
+  /* Move toggle to left */
+  .mobile-toggle {
+    display: block;
+    order: 0;
+    margin-right: auto;
+  }
+
+  /* Pushing nav-right items to the right */
+  .nav-right {
+    margin-left: auto;
+    gap: 1rem;
+  }
+
+  /* Ensuring theme toggle stays visible and aligned */
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
 }
