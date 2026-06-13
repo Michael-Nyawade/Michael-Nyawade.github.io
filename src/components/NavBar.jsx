@@ -89,23 +89,24 @@ export default function NavBar() {
       {/* Logo / Name */}
       <div className="navbar-logo">Michael Nyawade</div>
 
-      {/* Desktop navigation menu */}
-      <div className="desktop-menu">
-        {sections.map((section) => (
-          <button
-            key={section}
-            onClick={() => scrollToSection(section)}
-            className={`nav-link ${
-              activeSection === section ? "active" : ""
-            }`}
-          >
-            {formatLabel(section)}
-          </button>
-        ))}
-      </div>
+      {/* Right side controls */}
+      <div className="nav-right">
+        <div className="desktop-menu">
+          {sections.map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`nav-link ${
+                activeSection === section ? "active" : ""
+              }`}
+            >
+              {formatLabel(section)}
+            </button>
+          ))}
+        </div>
 
-      {/* Theme toggle button */}
-      <ThemeToggle />
+        <ThemeToggle />
+      </div>
 
       {/* Mobile hamburger toggle */}
       <button

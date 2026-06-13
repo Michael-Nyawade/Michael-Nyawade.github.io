@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 1rem 1.25rem;
+  padding: 1rem 2rem;
 
   background-color: transparent;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
@@ -28,10 +28,17 @@
   color: var(--text-color);
 }
 
+/* Right side controls */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 /* Desktop menu */
 .desktop-menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .nav-link {
@@ -42,6 +49,7 @@
   cursor: pointer;
 
   font-weight: 400;
+  font-size: 1.05rem;
 
   position: relative;
   padding: 0.25rem 0;
