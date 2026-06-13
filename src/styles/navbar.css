@@ -122,6 +122,13 @@
   border: none;
   color: var(--text-color);
   cursor: pointer;
+
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.mobile-toggle:active {
+  transform: scale(0.9);
 }
 
 .mobile-overlay {

@@ -117,8 +117,9 @@ export default function NavBar() {
       <button
         className="mobile-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
       >
-        ☰
+        {menuOpen ? "✕" : "☰"}
       </button>
 
       {/* Mobile menu with overlay */}
