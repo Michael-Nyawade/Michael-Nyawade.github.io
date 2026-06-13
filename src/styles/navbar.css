@@ -183,9 +183,12 @@
     display: block;
   }
 
-  /* Mobile layout */
+  /* Mobile layout override */
   .navbar {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
   }
 
   /* Hide logo on mobile */
@@ -193,22 +196,16 @@
     display: none;
   }
 
-  /* Move toggle to left */
+  /* Force left/right alignment */
   .mobile-toggle {
-    display: block;
     order: 0;
     margin-right: auto;
   }
 
-  /* Pushing nav-right items to the right */
-  .nav-right {
-    margin-left: auto;
-    gap: 1rem;
-  }
-
-  /* Ensuring theme toggle stays visible and aligned */
   .nav-right {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    margin-left: auto;
   }
 }
