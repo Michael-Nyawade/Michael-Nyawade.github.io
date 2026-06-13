@@ -185,8 +185,8 @@
 
   /* Mobile layout override */
   .navbar {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     padding: 1rem;
   }
@@ -196,16 +196,15 @@
     display: none;
   }
 
-  /* Force left/right alignment */
+  /* Explicit placement */
   .mobile-toggle {
-    order: 0;
-    margin-right: auto;
+    justify-self: start;
   }
 
   .nav-right {
+    justify-self: end;
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-left: auto;
   }
 }
