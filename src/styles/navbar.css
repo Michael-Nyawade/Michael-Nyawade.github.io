@@ -132,6 +132,15 @@
   backdrop-filter: blur(4px);
 
   z-index: 999;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobile-panel {
@@ -153,7 +162,14 @@
 
   z-index: 1000;
 
-  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15); /* flipped shadow */
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.15);
+
+  transform: translateX(-100%);
+  transition: transform 0.25s ease-in-out;
+}
+
+.mobile-panel.open {
+  transform: translateX(0);
 }
 
 .mobile-link {

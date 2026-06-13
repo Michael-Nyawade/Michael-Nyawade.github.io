@@ -122,30 +122,24 @@ export default function NavBar() {
       </button>
 
       {/* Mobile menu with overlay */}
-      {menuOpen && (
-        <>
-          {/* Overlay to close menu when clicked */}
-          <div
-            className="mobile-overlay"
-            onClick={() => setMenuOpen(false)}
-          />
+      <div
+        className={`mobile-overlay ${menuOpen ? "show" : ""}`}
+        onClick={() => setMenuOpen(false)}
+      />
 
-          {/* Mobile menu panel */}
-          <div className="mobile-panel">
-            {sections.map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`mobile-link ${
-                  activeSection === section ? "active" : ""
-                }`}
-              >
-                {formatLabel(section)}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
+      <div className={`mobile-panel ${menuOpen ? "open" : ""}`}>
+        {sections.map((section) => (
+          <button
+            key={section}
+            onClick={() => scrollToSection(section)}
+            className={`mobile-link ${
+              activeSection === section ? "active" : ""
+            }`}
+          >
+            {formatLabel(section)}
+          </button>
+        ))}
+      </div>
     </nav>
   );
 }
