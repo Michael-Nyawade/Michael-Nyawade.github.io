@@ -7,6 +7,7 @@ import JSLogo from "../assets/skills/javascript.svg";
 import ExcelLogo from "../assets/skills/excel.svg";
 import SQLLogo from "../assets/skills/sql.svg";
 import PowerBILogo from "../assets/skills/powerbi.svg";
+import DockerLogo from "../assets/skills/docker.svg";
 
 const skills = {
   "Data Science": {
@@ -24,6 +25,7 @@ const skills = {
       { name: "Git & GitHub", level: 85, logo: GitHubLogo },
       { name: "Go", level: 75, logo: GoLogo },
       { name: "JavaScript", level: 80, logo: JSLogo },
+      { name: "Docker", level: 70, logo: DockerLogo },
     ],
     others: ["React", "Vite", "REST APIs", "Unit Testing"],
   },
@@ -58,21 +60,14 @@ export default function Skills() {
 
               {/* TOP SKILLS */}
               <div className="skills-top">
-                {data.top.map((skill, i) => (
-                  <div key={i} className="skill-item">
-                    <div className="skill-label">
+                <div className="skills-chip-group">
+                  {data.top.map((skill, i) => (
+                    <span key={i} className="skills-chip">
                       <img src={skill.logo} alt={skill.name} />
-                      <span>{skill.name}</span>
-                    </div>
-
-                    <div className="skill-bar">
-                      <div
-                        className="skill-fill"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* OTHER SKILLS */}
