@@ -123,3 +123,31 @@
     height: 170px;
   }
 }
+
+/* MOBILE APP-LIKE FEED */
+@media (max-width: 768px) {
+  .project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .project-card {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .project-inner {
+    padding: 1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .project-card:active {
+    transform: scale(0.98);
+    transition: transform 0.15s ease;
+  }
+}
