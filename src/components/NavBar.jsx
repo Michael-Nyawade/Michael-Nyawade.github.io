@@ -87,7 +87,12 @@ export default function NavBar() {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       {/* Logo / Name */}
-      <div className="navbar-logo">Michael Nyawade</div>
+      <div
+        className="navbar-logo"
+        onClick={() => scrollToSection("hero")}
+      >
+        MN
+      </div>
 
       {/* Right side controls */}
       <div className="nav-right">
