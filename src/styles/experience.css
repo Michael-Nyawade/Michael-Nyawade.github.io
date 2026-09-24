@@ -76,6 +76,8 @@
 
   box-shadow: 0 4px 12px var(--shadow-color);
 
+  text-align: left;
+
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -89,8 +91,19 @@
   margin-bottom: 0.3rem;
 }
 
-.experience-desc {
+.experience-company {
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.experience-points {
+  margin: 0.9rem 0 0;
+  padding-left: 1.2rem;
   line-height: 1.6;
+}
+
+.experience-points li + li {
+  margin-top: 0.45rem;
 }
 
 /* MOBILE PERIOD */

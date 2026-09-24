@@ -1,27 +1,33 @@
 const experiences = [
   {
-    role: "Software Developer Apprentice",
+    role: "AI & Machine Learning Apprentice",
+    company: "Zone01 Kisumu",
     period: "April 2026 - Present",
-    description:
-      "Building software solutions and strengthening practical engineering skills through real-world development experience.",
+    points: [
+      "Building software projects in a peer-to-peer, project-based environment, using Python, JavaScript, Go and the Linux command line, with Git and GitHub.",
+      "Applying regression, classification (logistic regression, decision trees, SVM, KNN), NLP basics and unsupervised learning (PCA, K-Means) with Python and scikit-learn in team projects.",
+      "Reviewing code and debugging with other apprentices.",
+    ],
   },
   {
-    role: "Research and Planning Intern",
+    role: "Research, Planning & Compliance Intern",
+    company: "Privatization Authority",
     period: "March 2025 - March 2026",
-    description:
-      "Worked with research, planning, and analytical processes to support organizational decision-making.",
+    points: [
+      "Collected, cleaned and consolidated performance data from 10+ departments for quarterly and annual performance contract reporting (GPICS system).",
+      "Tracked progress on strategic objectives and consolidated departmental reports for monitoring and evaluation and the Annual Work Plan.",
+      "Maintained structured datasets and supported ISO 9001:2015 documentation control.",
+    ],
   },
   {
     role: "Credit Analyst Intern",
+    company: "Metropol Corporation Limited",
     period: "January 2024 - February 2025",
-    description:
-      "Performed financial and credit-related analysis to support risk evaluation and lending processes.",
-  },
-  {
-    role: "Fiscal Analyst Attachee",
-    period: "October 2021 - December 2021",
-    description:
-      "Supported fiscal analysis activities and gained exposure to financial operations and reporting.",
+    points: [
+      "Analyzed credit and financial data for about 20-50 customer accounts a week to assess creditworthiness and repayment capacity.",
+      "Built and maintained weekly Excel and Power BI dashboards on portfolio performance and debt recovery trends for senior analysts.",
+      "Used SQL to extract, clean and organize customer financial data.",
+    ],
   },
 ];
 
@@ -36,8 +42,12 @@ export default function Experience() {
         <div className="experience-timeline">
           <div className="timeline-line" />
 
-          {experiences.map((exp, index) => (
-            <div key={index} className="experience-item" data-aos="fade-up">
+          {experiences.map((exp) => (
+            <div
+              key={`${exp.company}-${exp.period}`}
+              className="experience-item"
+              data-aos="fade-up"
+            >
               <div className="experience-period">{exp.period}</div>
 
               <div className="timeline-dot" />
@@ -47,7 +57,13 @@ export default function Experience() {
 
                 <h3 className="experience-role">{exp.role}</h3>
 
-                <p className="experience-desc">{exp.description}</p>
+                <p className="experience-company">{exp.company}</p>
+
+                <ul className="experience-points">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
