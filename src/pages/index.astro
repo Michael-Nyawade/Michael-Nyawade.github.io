@@ -12,11 +12,12 @@ import { site } from "../data/site.js";
       <p class="role">Statistician | Data Analyst | Data Scientist</p>
 
       <p class="intro">
-        I’m a statistician who enjoys making sense of messy data and turning it
-        into something useful. I’ve worked across credit analysis, institutional
-        research, and machine learning, using Python, SQL, Power BI, and R along
-        the way. What interests me most is digging into a problem, understanding
-        what the data is saying, and finding a practical way forward.
+        I’m a statistician who enjoys making sense of messy data and turning
+        it into something useful. I’ve worked across credit analysis,
+        institutional research, and machine learning, using Python, SQL,
+        Power BI, and R along the way. What interests me most is digging
+        into a problem, understanding what the data is saying, and finding
+        a practical way forward.
       </p>
 
       <p class="actions">
@@ -42,8 +43,10 @@ import { site } from "../data/site.js";
       class="portrait"
       src={portrait}
       alt="Portrait of Michael Nyawade"
-      width={220}
-      height={220}
+      width={320}
+      height={320}
+      fit="cover"
+      position="top"
       format="webp"
       quality={80}
       loading="eager"
@@ -115,9 +118,10 @@ import { site } from "../data/site.js";
   }
 
   .portrait {
-    width: 12rem;
-    height: 12rem;
+    width: clamp(12.5rem, 20vw, 16.25rem);
+    height: clamp(12.5rem, 20vw, 16.25rem);
     object-fit: cover;
+    object-position: top;
     border-radius: 50%;
     border: 1px solid var(--line);
   }
