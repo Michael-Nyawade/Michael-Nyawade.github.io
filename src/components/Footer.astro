@@ -1,0 +1,24 @@
+---
+import { site } from "../data/site.js";
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <p>&copy; {year} {site.name}</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--line);
+    padding-block: 1.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>
