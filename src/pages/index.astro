@@ -7,28 +7,16 @@ import { site } from "../data/site.js";
 
 <BaseLayout>
   <section class="hero container">
-    <Image
-      class="portrait"
-      src={portrait}
-      alt="Portrait of Michael Nyawade"
-      width={220}
-      height={220}
-      format="webp"
-      quality={80}
-      loading="eager"
-    />
-
     <div class="text">
       <h1>{site.name}</h1>
       <p class="role">Statistician | Data Analyst | Data Scientist</p>
 
-      <!-- Placeholder wording, built only from the CV. To be rewritten together. -->
       <p class="intro">
-        I like data that has to work for a living - credit files,
-        institutional reports, the kind of numbers real decisions get made
-        from. Two years of that took me through credit risk and institutional
-        planning, and now I'm turning the same instincts toward machine
-        learning at Zone01 Kisumu.
+        I’m a statistician who enjoys making sense of messy data and turning it
+        into something useful. I’ve worked across credit analysis, institutional
+        research, and machine learning, using Python, SQL, Power BI, and R along
+        the way. What interests me most is digging into a problem, understanding
+        what the data is saying, and finding a practical way forward.
       </p>
 
       <p class="actions">
@@ -49,6 +37,17 @@ import { site } from "../data/site.js";
         </a>
       </p>
     </div>
+
+    <Image
+      class="portrait"
+      src={portrait}
+      alt="Portrait of Michael Nyawade"
+      width={220}
+      height={220}
+      format="webp"
+      quality={80}
+      loading="eager"
+    />
   </section>
 </BaseLayout>
 
@@ -59,6 +58,14 @@ import { site } from "../data/site.js";
     text-align: center;
     gap: 1.75rem;
     padding-block: clamp(2.5rem, 8vw, 5rem);
+  }
+
+  .text {
+    order: 2;
+  }
+
+  .portrait {
+    order: 1;
   }
 
   h1 {
@@ -117,9 +124,17 @@ import { site } from "../data/site.js";
 
   @media (min-width: 40rem) {
     .hero {
-      grid-template-columns: auto 1fr;
+      grid-template-columns: 1fr auto;
       justify-items: start;
       text-align: left;
+    }
+
+    .text {
+      order: 1;
+    }
+
+    .portrait {
+      order: 2;
     }
 
     .intro {
