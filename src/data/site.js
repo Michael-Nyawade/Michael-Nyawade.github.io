@@ -8,6 +8,10 @@ export const site = {
   github: "https://github.com/Michael-Nyawade",
   linkedin: "https://www.linkedin.com/in/michael-nyawade-9a02b5276/",
   cv: "/Michael_Nyawade_CV.pdf",
-  // Pages get added here as they are built.
-  nav: [{ label: "Home", href: "/" }],
+  nav: [
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/projects" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
 };
