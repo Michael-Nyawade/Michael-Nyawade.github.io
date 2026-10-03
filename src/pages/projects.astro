@@ -1,16 +1,134 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/projects.js";
+
+const images = import.meta.glob("../assets/projects/*.png", { eager: true });
+
+function imageFor(name) {
+  return images[`../assets/projects/${name}`].default;
+}
 ---
 
-<BaseLayout title="Projects">
-  <section class="container placeholder">
+<BaseLayout
+  title="Projects"
+  description="Three end-to-end data and machine learning projects, each with a live app and full source."
+>
+  <section class="container intro">
     <h1>Projects</h1>
-    <p>This page is coming soon.</p>
+    <p>
+      Three end-to-end projects, each with a working app you can try and full
+      source on GitHub. The Streamlit apps are on the free tier, so the
+      first visit after a while can take a few seconds to wake up.
+    </p>
+  </section>
+
+  <section class="container list">
+    {
+      projects.map((project) => (
+        <article class="project">
+          <Image
+            class="shot"
+            src={imageFor(project.image)}
+            alt={project.imageAlt}
+            width={900}
+            loading="lazy"
+          />
+
+          <div class="body">
+            <h2>{project.title}</h2>
+            <p class="summary">{project.summary}</p>
+
+            {project.description.map((para) => (
+              <p>{para}</p>
+            ))}
+
+            <ul class="stack">
+              {project.stack.map((tool) => (
+                <li>{tool}</li>
+              ))}
+            </ul>
+
+            <p class="links">
+              <a class="button" href={project.demo} target="_blank" rel="noopener noreferrer">
+                Live app
+              </a>
+              <a href={project.code} target="_blank" rel="noopener noreferrer">
+                Code on GitHub
+              </a>
+            </p>
+          </div>
+        </article>
+      ))
+    }
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
-    padding-block: clamp(2.5rem, 8vw, 5rem);
+  .intro {
+    padding-block: clamp(2.5rem, 8vw, 4rem) 1rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 8vw, 5rem);
+    padding-block: 1rem clamp(3rem, 8vw, 5rem);
+  }
+
+  .project {
+    display: grid;
+    gap: 1.75rem;
+    padding-block-end: clamp(3rem, 8vw, 5rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:last-child {
+    border-bottom: none;
+    padding-block-end: 0;
+  }
+
+  .shot {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+
+  .summary {
+    font-size: 1.15rem;
+    color: var(--muted);
+  }
+
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    font-size: 0.9rem;
+  }
+
+  .stack li {
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 60rem) {
+    .project {
+      grid-template-columns: 1.1fr 1fr;
+      align-items: start;
+    }
   }
 </style>
