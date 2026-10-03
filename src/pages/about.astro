@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { site } from "../data/site.js";
 import { experience, education, skills, testimonials } from "../data/experience.js";
+import { iconFor } from "../data/techIcons.js";
 ---
 
 <BaseLayout
@@ -95,9 +96,19 @@ import { experience, education, skills, testimonials } from "../data/experience.
           <div class="skills-group">
             <h3>{group.group}</h3>
             <ul>
-              {group.items.map((item) => (
-                <li>{item}</li>
-              ))}
+              {group.items.map((item) => {
+                const icon = iconFor(item);
+                return (
+                  <li>
+                    {icon && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" style={`fill:${icon.hex}`}>
+                        <path d={icon.path} />
+                      </svg>
+                    )}
+                    {item}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))
@@ -245,10 +256,19 @@ import { experience, education, skills, testimonials } from "../data/experience.
   }
 
   .skills-group li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.3rem 0.75rem;
     border: 1px solid var(--line);
     border-radius: 999px;
     font-size: 0.9rem;
+  }
+
+  .skills-group li svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex-shrink: 0;
   }
 
   @media (min-width: 40rem) {

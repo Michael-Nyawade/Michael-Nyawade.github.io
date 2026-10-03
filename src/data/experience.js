@@ -63,7 +63,7 @@ export const skills = [
   },
   {
     group: "Tools",
-    items: ["Git & GitHub", "Jupyter Notebook", "Linux"],
+    items: ["Git", "GitHub", "Jupyter Notebook", "Linux"],
   },
 ];
 

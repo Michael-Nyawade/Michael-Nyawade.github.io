@@ -2,13 +2,30 @@
 // simple-icons package. Only tools that have a recognized brand icon are
 // listed here - anything else (e.g. matplotlib, seaborn) just renders as
 // plain text in the stack list, which is intentional, not a gap.
-import { siPython, siPandas, siScikitlearn, siPytest } from "simple-icons";
+import {
+  siPython,
+  siPandas,
+  siScikitlearn,
+  siPytest,
+  siR,
+  siNumpy,
+  siGit,
+  siGithub,
+  siJupyter,
+  siLinux,
+} from "simple-icons";
 
 const icons = {
   Python: siPython,
   pandas: siPandas,
   "scikit-learn": siScikitlearn,
   pytest: siPytest,
+  R: siR,
+  NumPy: siNumpy,
+  Git: siGit,
+  GitHub: siGithub,
+  "Jupyter Notebook": siJupyter,
+  Linux: siLinux,
 };
 
 export function iconFor(toolName) {
