@@ -1,16 +1,292 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site.js";
+import { experience, education, skills, testimonials } from "../data/experience.js";
 ---
 
-<BaseLayout title="About">
-  <section class="container placeholder">
-    <h1>About</h1>
-    <p>This page is coming soon.</p>
+<BaseLayout
+  title="About"
+  description="Michael Nyawade's background in statistics, credit risk, institutional research and machine learning."
+>
+  <section class="container bio">
+      <p>
+        I'm a statistician who enjoys turning messy, real-world data into
+        decisions people can actually act on.
+      </p>
+
+      <p>
+        Over the past two years, I've worked across credit risk analysis,
+        institutional research, and applied machine learning - analyzing
+        customer financial data and building recurring Power BI/Excel
+        reporting at Metropol Corporation, consolidating performance data
+        institution-wide for the Privatization Authority, and currently
+        deepening my machine learning skills through an AI & Machine
+        Learning apprenticeship at Zone01 Kisumu.
+      </p>
+
+      <p>
+        I also build end-to-end data science projects, working the full
+        pipeline from data cleaning to modeling to communicating results
+        clearly.
+      </p>
+
+      <p>
+        I work in Python, SQL, and Power BI, and I'm always looking to
+        sharpen both my statistical thinking and my software engineering
+        fundamentals.
+      </p>
+
+      <p>
+        Open to connecting on data, analytics, and research-driven work -
+        feel free to reach out or check out my
+        {" "}<a href={site.github}>projects on GitHub</a>.
+      </p>
+  </section>
+
+  <section class="container block">
+    <h2>Experience</h2>
+
+    <div class="experience-list">
+      {
+        experience.map((job) => (
+          <article class="job">
+            <p class="period">{job.period}</p>
+
+            <div class="job-body">
+              <h3>{job.role}</h3>
+              <p class="company">{job.company}</p>
+
+              <ul>
+                {job.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container block">
+    <h2>Education</h2>
+
+    <ul class="education-list">
+      {
+        education.map((item) => (
+          <li>
+            <div>
+              <strong>{item.qualification}</strong>
+              <span class="place">{item.place}</span>
+            </div>
+            <span class="period">{item.period}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="container block">
+    <h2>Skills</h2>
+
+    <div class="skills-groups">
+      {
+        skills.map((group) => (
+          <div class="skills-group">
+            <h3>{group.group}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container block">
+    <h2>What colleagues say</h2>
+
+    <div class="testimonials">
+      {
+        testimonials.map((t) => (
+          <figure class="testimonial">
+            <blockquote>"{t.quote}"</blockquote>
+            <figcaption>
+              <strong>{t.name}</strong>
+              <span>{t.role}, {t.company}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
-    padding-block: clamp(2.5rem, 8vw, 5rem);
+  .bio {
+    padding-block: clamp(2.5rem, 8vw, 4rem) 1rem;
+    max-width: 42rem;
+  }
+
+  .block {
+    padding-block: clamp(2.5rem, 6vw, 3.5rem);
+    border-top: 1px solid var(--line);
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Experience */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .job {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .period {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .job-body h3 {
+    margin-bottom: 0.2rem;
+  }
+
+  .company {
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .job-body ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .job-body li + li {
+    margin-top: 0.4rem;
+  }
+
+  @media (min-width: 40rem) {
+    .job {
+      grid-template-columns: 9rem 1fr;
+      gap: 1.5rem;
+    }
+
+    .period {
+      padding-top: 0.2rem;
+    }
+  }
+
+  /* Education */
+  .education-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .education-list li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.25rem;
+  }
+
+  .education-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .education-list .place {
+    display: block;
+    color: var(--muted);
+  }
+
+  .education-list .period {
+    white-space: nowrap;
+  }
+
+  /* Skills */
+  .skills-groups {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .skills-group h3 {
+    font-size: 1rem;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .skills-group ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .skills-group li {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+
+  @media (min-width: 40rem) {
+    .skills-groups {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Testimonials */
+  .testimonials {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .testimonial {
+    margin: 0;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+
+  .testimonial blockquote {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .testimonial figcaption {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  @media (min-width: 55rem) {
+    .testimonials {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
