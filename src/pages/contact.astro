@@ -1,16 +1,52 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import IconLink from "../components/IconLink.astro";
+import { site } from "../data/site.js";
 ---
 
-<BaseLayout title="Contact">
-  <section class="container placeholder">
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Michael Nyawade about a job, freelance work, or a project."
+>
+  <section class="container contact">
     <h1>Contact</h1>
-    <p>This page is coming soon.</p>
+
+    <p>
+      I'm open to job opportunities, part-time or freelance work, and
+      interesting projects. If something here looks like a fit, I'd like to
+      hear from you.
+    </p>
+
+    <p class="actions">
+      <a class="button" href={`mailto:${site.email}`}>Email me</a>
+      <a href={site.cv} target="_blank" rel="noopener noreferrer">Download CV</a>
+    </p>
+
+    <div class="icons">
+      <IconLink href={`mailto:${site.email}`} label="Email me" icon="email" newTab={false} />
+      <IconLink href={site.github} label="GitHub profile" icon="github" />
+      <IconLink href={site.linkedin} label="LinkedIn profile" icon="linkedin" />
+    </div>
   </section>
 </BaseLayout>
 
 <style>
-  .placeholder {
+  .contact {
     padding-block: clamp(2.5rem, 8vw, 5rem);
+    max-width: 38rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
   }
 </style>
