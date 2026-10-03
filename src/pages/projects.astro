@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { projects } from "../data/projects.js";
+import { iconFor } from "../data/techIcons.js";
 
 const images = import.meta.glob("../assets/projects/*.png", { eager: true });
 
@@ -44,9 +45,19 @@ function imageFor(name) {
             ))}
 
             <ul class="stack">
-              {project.stack.map((tool) => (
-                <li>{tool}</li>
-              ))}
+              {project.stack.map((tool) => {
+                const icon = iconFor(tool);
+                return (
+                  <li>
+                    {icon && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" style={`fill:${icon.hex}`}>
+                        <path d={icon.path} />
+                      </svg>
+                    )}
+                    {tool}
+                  </li>
+                );
+              })}
             </ul>
 
             <p class="links">
@@ -111,10 +122,19 @@ function imageFor(name) {
   }
 
   .stack li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.25rem 0.65rem;
     border: 1px solid var(--line);
     border-radius: 999px;
     color: var(--muted);
+  }
+
+  .stack li svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex-shrink: 0;
   }
 
   .links {
