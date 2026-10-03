@@ -1,9 +1,9 @@
 // Facts used across the site. Change them here, not in the pages.
 export const site = {
   name: "Michael Nyawade",
-  role: "Statistician and machine learning apprentice",
+  role: "Statistics | Data Analysis | Data Science",
   description:
-    "Michael Nyawade is a statistician and machine learning apprentice. Projects, experience and how to get in touch.",
+    "Michael Nyawade's work in statistics, data analysis and machine learning - projects, experience, and how to get in touch.",
   email: "mikeokello17@gmail.com",
   whatsapp: "https://wa.me/254705932858",
   github: "https://github.com/Michael-Nyawade",
